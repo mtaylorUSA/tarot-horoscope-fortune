@@ -1,0 +1,326 @@
+[
+  {
+    "id": "aries",
+    "name": "Aries",
+    "symbol": "♈",
+    "element": "Fire",
+    "modality": "Cardinal",
+    "rulingPlanet": "Mars",
+    "dateRange": {
+      "start": "Mar 21",
+      "end": "Apr 19",
+      "startMonth": 3,
+      "startDay": 21,
+      "endMonth": 4,
+      "endDay": 19
+    },
+    "image": "/images/zodiac/ZODIAC - ARIES.png",
+    "keywords": ["courage", "energy", "independence", "leadership", "passion"],
+    "traits": {
+      "strengths": ["Courageous", "Determined", "Confident", "Enthusiastic", "Honest"],
+      "weaknesses": ["Impatient", "Impulsive", "Short-tempered", "Aggressive", "Competitive"]
+    },
+    "description": "The first sign of the zodiac, Aries blazes forth with the fire of new beginnings. Born under the ram, these bold souls charge headfirst into life with fearless determination and unbridled enthusiasm. Mars fuels their warrior spirit, granting them the courage to pioneer new paths where others fear to tread.",
+    "compatibleSigns": ["Leo", "Sagittarius", "Gemini", "Aquarius"],
+    "luckyNumbers": [1, 8, 17],
+    "bodyPart": "Head",
+    "season": "Spring"
+  },
+  {
+    "id": "taurus",
+    "name": "Taurus",
+    "symbol": "♉",
+    "element": "Earth",
+    "modality": "Fixed",
+    "rulingPlanet": "Venus",
+    "dateRange": {
+      "start": "Apr 20",
+      "end": "May 20",
+      "startMonth": 4,
+      "startDay": 20,
+      "endMonth": 5,
+      "endDay": 20
+    },
+    "image": "/images/zodiac/ZODIAC - TAURUS.png",
+    "keywords": ["stability", "patience", "sensuality", "determination", "loyalty"],
+    "traits": {
+      "strengths": ["Reliable", "Patient", "Practical", "Devoted", "Responsible"],
+      "weaknesses": ["Stubborn", "Possessive", "Uncompromising", "Materialistic", "Resistant to change"]
+    },
+    "description": "Ruled by Venus, the planet of beauty and love, Taurus walks the earth with unwavering steadiness. The bull finds strength in patience and power in persistence. These devoted souls build their kingdoms one stone at a time, savoring life's pleasures with a richness that others only dream of.",
+    "compatibleSigns": ["Virgo", "Capricorn", "Cancer", "Pisces"],
+    "luckyNumbers": [2, 6, 9],
+    "bodyPart": "Throat",
+    "season": "Spring"
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini",
+    "symbol": "♊",
+    "element": "Air",
+    "modality": "Mutable",
+    "rulingPlanet": "Mercury",
+    "dateRange": {
+      "start": "May 21",
+      "end": "Jun 20",
+      "startMonth": 5,
+      "startDay": 21,
+      "endMonth": 6,
+      "endDay": 20
+    },
+    "image": "/images/zodiac/ZODIAC - GEMINI.png",
+    "keywords": ["adaptability", "communication", "curiosity", "wit", "versatility"],
+    "traits": {
+      "strengths": ["Gentle", "Affectionate", "Curious", "Adaptable", "Quick-witted"],
+      "weaknesses": ["Nervous", "Inconsistent", "Indecisive", "Restless", "Superficial"]
+    },
+    "description": "The celestial twins dance through life on Mercury's quicksilver wings. Gemini possesses the rare gift of seeing the world from multiple perspectives at once, weaving words and ideas into brilliant tapestries of thought. Their restless minds seek connection and knowledge with an insatiable thirst.",
+    "compatibleSigns": ["Libra", "Aquarius", "Aries", "Leo"],
+    "luckyNumbers": [5, 7, 14],
+    "bodyPart": "Arms and Hands",
+    "season": "Spring"
+  },
+  {
+    "id": "cancer",
+    "name": "Cancer",
+    "symbol": "♋",
+    "element": "Water",
+    "modality": "Cardinal",
+    "rulingPlanet": "Moon",
+    "dateRange": {
+      "start": "Jun 21",
+      "end": "Jul 22",
+      "startMonth": 6,
+      "startDay": 21,
+      "endMonth": 7,
+      "endDay": 22
+    },
+    "image": "/images/zodiac/ZODIAC - CANCER.png",
+    "keywords": ["nurturing", "intuition", "emotion", "protection", "home"],
+    "traits": {
+      "strengths": ["Tenacious", "Loyal", "Emotional", "Sympathetic", "Persuasive"],
+      "weaknesses": ["Moody", "Pessimistic", "Suspicious", "Manipulative", "Insecure"]
+    },
+    "description": "Guided by the ever-changing Moon, Cancer carries the tides of emotion within their very soul. The crab builds a sacred shell of home and hearth, fiercely protecting those they hold dear. Beneath their protective exterior lies a profound well of intuition and a nurturing heart that feels the world deeply.",
+    "compatibleSigns": ["Scorpio", "Pisces", "Taurus", "Virgo"],
+    "luckyNumbers": [2, 3, 15],
+    "bodyPart": "Chest and Stomach",
+    "season": "Summer"
+  },
+  {
+    "id": "leo",
+    "name": "Leo",
+    "symbol": "♌",
+    "element": "Fire",
+    "modality": "Fixed",
+    "rulingPlanet": "Sun",
+    "dateRange": {
+      "start": "Jul 23",
+      "end": "Aug 22",
+      "startMonth": 7,
+      "startDay": 23,
+      "endMonth": 8,
+      "endDay": 22
+    },
+    "image": "/images/zodiac/ZODIAC - LEO.png",
+    "keywords": ["creativity", "pride", "generosity", "warmth", "drama"],
+    "traits": {
+      "strengths": ["Creative", "Passionate", "Generous", "Warm-hearted", "Cheerful"],
+      "weaknesses": ["Arrogant", "Stubborn", "Self-centered", "Lazy", "Inflexible"]
+    },
+    "description": "The lion rules the zodiac with the radiance of the Sun itself. Leo commands attention not through demand but through sheer magnetic brilliance. These regal souls burn with creative fire and possess hearts of pure gold, illuminating every room they enter with warmth, generosity, and an irresistible dramatic flair.",
+    "compatibleSigns": ["Aries", "Sagittarius", "Gemini", "Libra"],
+    "luckyNumbers": [1, 3, 10],
+    "bodyPart": "Heart and Spine",
+    "season": "Summer"
+  },
+  {
+    "id": "virgo",
+    "name": "Virgo",
+    "symbol": "♍",
+    "element": "Earth",
+    "modality": "Mutable",
+    "rulingPlanet": "Mercury",
+    "dateRange": {
+      "start": "Aug 23",
+      "end": "Sep 22",
+      "startMonth": 8,
+      "startDay": 23,
+      "endMonth": 9,
+      "endDay": 22
+    },
+    "image": "/images/zodiac/ZODIAC - VIRGO.png",
+    "keywords": ["precision", "service", "analysis", "humility", "health"],
+    "traits": {
+      "strengths": ["Loyal", "Analytical", "Kind", "Hardworking", "Practical"],
+      "weaknesses": ["Overly critical", "Shy", "Worrisome", "All work and no play", "Perfectionist"]
+    },
+    "description": "Mercury bestows upon Virgo the sharpest mind in the zodiac. The maiden sees the world in exquisite detail, finding beauty in precision and purpose in service. These devoted healers and craftspeople weave order from chaos with quiet mastery, their humility concealing a brilliance that shapes the world around them.",
+    "compatibleSigns": ["Taurus", "Capricorn", "Cancer", "Scorpio"],
+    "luckyNumbers": [5, 14, 23],
+    "bodyPart": "Digestive System",
+    "season": "Summer"
+  },
+  {
+    "id": "libra",
+    "name": "Libra",
+    "symbol": "♎",
+    "element": "Air",
+    "modality": "Cardinal",
+    "rulingPlanet": "Venus",
+    "dateRange": {
+      "start": "Sep 23",
+      "end": "Oct 22",
+      "startMonth": 9,
+      "startDay": 23,
+      "endMonth": 10,
+      "endDay": 22
+    },
+    "image": "/images/zodiac/ZODIAC - LIBRA.png",
+    "keywords": ["balance", "harmony", "justice", "partnership", "beauty"],
+    "traits": {
+      "strengths": ["Cooperative", "Diplomatic", "Gracious", "Fair-minded", "Social"],
+      "weaknesses": ["Indecisive", "Avoids confrontation", "Self-pitying", "People-pleasing", "Superficial"]
+    },
+    "description": "Venus graces Libra with an exquisite eye for beauty and an unshakable devotion to justice. The scales forever seek the perfect equilibrium between light and shadow. These natural diplomats navigate the world with grace, weaving harmony from discord and finding the divine proportion in all things.",
+    "compatibleSigns": ["Gemini", "Aquarius", "Leo", "Sagittarius"],
+    "luckyNumbers": [4, 6, 13],
+    "bodyPart": "Kidneys and Lower Back",
+    "season": "Autumn"
+  },
+  {
+    "id": "scorpio",
+    "name": "Scorpio",
+    "symbol": "♏",
+    "element": "Water",
+    "modality": "Fixed",
+    "rulingPlanet": "Pluto",
+    "dateRange": {
+      "start": "Oct 23",
+      "end": "Nov 21",
+      "startMonth": 10,
+      "startDay": 23,
+      "endMonth": 11,
+      "endDay": 21
+    },
+    "image": "/images/zodiac/ZODIAC - SCORPIO.png",
+    "keywords": ["intensity", "transformation", "mystery", "power", "rebirth"],
+    "traits": {
+      "strengths": ["Resourceful", "Brave", "Passionate", "Loyal", "Determined"],
+      "weaknesses": ["Distrusting", "Jealous", "Secretive", "Vengeful", "Obsessive"]
+    },
+    "description": "From the depths of Pluto's realm, Scorpio rises with the power of transformation itself. The scorpion sees through every mask and every shadow, wielding an intensity that can heal or destroy. These enigmatic souls journey through the cycles of death and rebirth, emerging each time with deeper wisdom and fiercer strength.",
+    "compatibleSigns": ["Cancer", "Pisces", "Virgo", "Capricorn"],
+    "luckyNumbers": [8, 11, 18],
+    "bodyPart": "Reproductive System",
+    "season": "Autumn"
+  },
+  {
+    "id": "sagittarius",
+    "name": "Sagittarius",
+    "symbol": "♐",
+    "element": "Fire",
+    "modality": "Mutable",
+    "rulingPlanet": "Jupiter",
+    "dateRange": {
+      "start": "Nov 22",
+      "end": "Dec 21",
+      "startMonth": 11,
+      "startDay": 22,
+      "endMonth": 12,
+      "endDay": 21
+    },
+    "image": "/images/zodiac/ZODIAC - SAGITTARIUS.png",
+    "keywords": ["adventure", "freedom", "optimism", "philosophy", "exploration"],
+    "traits": {
+      "strengths": ["Generous", "Idealistic", "Great sense of humor", "Adventurous", "Optimistic"],
+      "weaknesses": ["Promises more than can deliver", "Impatient", "Tactless", "Restless", "Overconfident"]
+    },
+    "description": "Jupiter, king of the gods, grants Sagittarius an endless horizon. The archer aims their arrow at the stars and chases it with boundless enthusiasm. These philosopher-adventurers roam both the physical and intellectual worlds with infectious optimism, forever seeking the deeper truths that lie beyond the next hill.",
+    "compatibleSigns": ["Aries", "Leo", "Libra", "Aquarius"],
+    "luckyNumbers": [3, 7, 9],
+    "bodyPart": "Hips and Thighs",
+    "season": "Autumn"
+  },
+  {
+    "id": "capricorn",
+    "name": "Capricorn",
+    "symbol": "♑",
+    "element": "Earth",
+    "modality": "Cardinal",
+    "rulingPlanet": "Saturn",
+    "dateRange": {
+      "start": "Dec 22",
+      "end": "Jan 19",
+      "startMonth": 12,
+      "startDay": 22,
+      "endMonth": 1,
+      "endDay": 19
+    },
+    "image": "/images/zodiac/ZODIAC - CAPRICORN.png",
+    "keywords": ["ambition", "discipline", "responsibility", "mastery", "tradition"],
+    "traits": {
+      "strengths": ["Responsible", "Disciplined", "Self-controlled", "Good managers", "Ambitious"],
+      "weaknesses": ["Know-it-all", "Unforgiving", "Condescending", "Pessimistic", "Rigid"]
+    },
+    "description": "Saturn, the great taskmaster, forges Capricorn from iron discipline and ancient wisdom. The sea-goat climbs the mountain of ambition with tireless perseverance, building empires that withstand the ages. These master strategists understand that true power is earned through patience, and every summit conquered reveals yet another peak to ascend.",
+    "compatibleSigns": ["Taurus", "Virgo", "Scorpio", "Pisces"],
+    "luckyNumbers": [4, 8, 13],
+    "bodyPart": "Knees and Bones",
+    "season": "Winter"
+  },
+  {
+    "id": "aquarius",
+    "name": "Aquarius",
+    "symbol": "♒",
+    "element": "Air",
+    "modality": "Fixed",
+    "rulingPlanet": "Uranus",
+    "dateRange": {
+      "start": "Jan 20",
+      "end": "Feb 18",
+      "startMonth": 1,
+      "startDay": 20,
+      "endMonth": 2,
+      "endDay": 18
+    },
+    "image": "/images/zodiac/ZODIAC - AQUARIUS.png",
+    "keywords": ["innovation", "independence", "humanitarianism", "originality", "vision"],
+    "traits": {
+      "strengths": ["Progressive", "Original", "Independent", "Humanitarian", "Inventive"],
+      "weaknesses": ["Runs from emotional expression", "Temperamental", "Uncompromising", "Aloof", "Detached"]
+    },
+    "description": "Uranus electrifies Aquarius with the spark of revolution and invention. The water-bearer pours forth the waters of knowledge and innovation upon a thirsty world. These visionary souls see the future before it arrives, marching to a rhythm that others cannot yet hear, forever championing the collective good.",
+    "compatibleSigns": ["Gemini", "Libra", "Aries", "Sagittarius"],
+    "luckyNumbers": [4, 7, 11],
+    "bodyPart": "Ankles and Circulation",
+    "season": "Winter"
+  },
+  {
+    "id": "pisces",
+    "name": "Pisces",
+    "symbol": "♓",
+    "element": "Water",
+    "modality": "Mutable",
+    "rulingPlanet": "Neptune",
+    "dateRange": {
+      "start": "Feb 19",
+      "end": "Mar 20",
+      "startMonth": 2,
+      "startDay": 19,
+      "endMonth": 3,
+      "endDay": 20
+    },
+    "image": "/images/zodiac/ZODIAC - PISCES.png",
+    "keywords": ["compassion", "imagination", "intuition", "spirituality", "dreams"],
+    "traits": {
+      "strengths": ["Compassionate", "Artistic", "Intuitive", "Gentle", "Wise"],
+      "weaknesses": ["Fearful", "Overly trusting", "Sad", "Desire to escape reality", "Can be a victim or martyr"]
+    },
+    "description": "Neptune dissolves the boundaries of the material world for Pisces, granting access to realms of pure imagination and spiritual depth. The fish swims between the conscious and the unconscious, carrying ancient wisdom in their boundless compassion. These mystical dreamers feel the heartbeat of the universe itself.",
+    "compatibleSigns": ["Cancer", "Scorpio", "Taurus", "Capricorn"],
+    "luckyNumbers": [3, 9, 12],
+    "bodyPart": "Feet",
+    "season": "Winter"
+  }
+]

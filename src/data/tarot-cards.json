@@ -1,0 +1,1250 @@
+[
+  {
+    "id": "major-00",
+    "name": "The Fool",
+    "suit": "Major Arcana",
+    "number": 0,
+    "image": "/images/tarot/Tarot Major - FOOL.png",
+    "keywords": ["beginnings", "innocence", "leap of faith", "spontaneity"],
+    "upright": {
+      "meaning": "Beginnings, innocence, taking a leap of faith.",
+      "description": "The Fool steps to the edge of the unknown with childlike wonder and trust. A new journey awaits — one that requires courage, openness, and a willingness to embrace the unexpected. Leave behind what you think you know and follow the call of adventure."
+    },
+    "reversed": {
+      "meaning": "Recklessness, poor judgment, hesitation.",
+      "description": "The Fool reversed warns of naivety turned dangerous — leaping without looking or, conversely, being so paralyzed by fear that you refuse to take the first step. Reflect on whether you are being careless or overly cautious."
+    }
+  },
+  {
+    "id": "major-01",
+    "name": "The Magician",
+    "suit": "Major Arcana",
+    "number": 1,
+    "image": "/images/tarot/Tarot Major - MAGICIAN.png",
+    "keywords": ["manifestation", "resourcefulness", "power", "willpower"],
+    "upright": {
+      "meaning": "Manifestation, resourcefulness, power.",
+      "description": "The Magician channels the forces of the universe through sheer will and skill. All the tools you need are already before you. Focus your intention, trust your abilities, and transform potential into reality."
+    },
+    "reversed": {
+      "meaning": "Manipulation, untapped potential, trickery.",
+      "description": "The Magician reversed suggests talents left unused or, worse, skills turned toward deception. Are you wielding your gifts with integrity, or letting them go to waste? Realign your intentions."
+    }
+  },
+  {
+    "id": "major-02",
+    "name": "The High Priestess",
+    "suit": "Major Arcana",
+    "number": 2,
+    "image": "/images/tarot/Tarot Major - HIGH PRIESTESS.png",
+    "keywords": ["intuition", "mystery", "subconscious", "inner voice"],
+    "upright": {
+      "meaning": "Intuition, mystery, subconscious.",
+      "description": "The High Priestess sits at the threshold between the seen and unseen worlds. She calls you to listen to the whispers of your inner voice. Answers lie not in logic alone but in the deep waters of intuition and dreams."
+    },
+    "reversed": {
+      "meaning": "Secrets, withdrawal, silenced intuition.",
+      "description": "The High Priestess reversed signals that you may be ignoring your inner wisdom or that hidden information is being withheld. Reconnect with your intuition and seek the truth beneath the surface."
+    }
+  },
+  {
+    "id": "major-03",
+    "name": "The Empress",
+    "suit": "Major Arcana",
+    "number": 3,
+    "image": "/images/tarot/Tarot Major - EMPRESS.png",
+    "keywords": ["fertility", "abundance", "nurturing", "nature"],
+    "upright": {
+      "meaning": "Fertility, abundance, nurturing.",
+      "description": "The Empress embodies the lush abundance of the natural world. She invites you to nurture your creations, embrace sensuality, and trust in the fertile cycles of growth. What you tend with love will flourish."
+    },
+    "reversed": {
+      "meaning": "Creative block, dependence, neglect.",
+      "description": "The Empress reversed points to stifled creativity or over-dependence on others for fulfillment. Reconnect with what nourishes you and reclaim your creative power."
+    }
+  },
+  {
+    "id": "major-04",
+    "name": "The Emperor",
+    "suit": "Major Arcana",
+    "number": 4,
+    "image": "/images/tarot/Tarot Major - EMPEROR.png",
+    "keywords": ["authority", "structure", "control", "leadership"],
+    "upright": {
+      "meaning": "Authority, structure, control.",
+      "description": "The Emperor commands with wisdom and discipline. He represents the power of structure, boundaries, and clear leadership. Establish order in your life and take charge of your domain with confidence."
+    },
+    "reversed": {
+      "meaning": "Tyranny, rigidity, loss of control.",
+      "description": "The Emperor reversed warns of authority gone astray — either too rigid and controlling, or too weak and absent. Examine where power is being misused or where you need to reclaim your authority."
+    }
+  },
+  {
+    "id": "major-05",
+    "name": "The Hierophant",
+    "suit": "Major Arcana",
+    "number": 5,
+    "image": "/images/tarot/Tarot Major - HIEROPHANT.png",
+    "keywords": ["tradition", "convention", "spiritual guidance", "wisdom"],
+    "upright": {
+      "meaning": "Tradition, convention, spiritual guidance.",
+      "description": "The Hierophant bridges the earthly and the divine, offering wisdom rooted in tradition and sacred teachings. Seek guidance from mentors, honor established practices, and find meaning in shared rituals."
+    },
+    "reversed": {
+      "meaning": "Rebellion, nonconformity, questioning beliefs.",
+      "description": "The Hierophant reversed calls you to challenge outdated beliefs and forge your own spiritual path. Question what you have been taught and seek truth that resonates with your own experience."
+    }
+  },
+  {
+    "id": "major-06",
+    "name": "The Lovers",
+    "suit": "Major Arcana",
+    "number": 6,
+    "image": "/images/tarot/Tarot Major - LOVERS.png",
+    "keywords": ["choice", "relationships", "values", "union"],
+    "upright": {
+      "meaning": "Choice, relationships, values.",
+      "description": "The Lovers present a crossroads of the heart. This card speaks of deep connection, alignment of values, and the power of choice. Whether in love or life, choose what truly resonates with your soul."
+    },
+    "reversed": {
+      "meaning": "Disharmony, imbalance, misalignment.",
+      "description": "The Lovers reversed suggests inner conflict, a relationship out of balance, or values that are misaligned. Examine what is creating discord and seek to restore harmony within yourself."
+    }
+  },
+  {
+    "id": "major-07",
+    "name": "The Chariot",
+    "suit": "Major Arcana",
+    "number": 7,
+    "image": "/images/tarot/Tarot Major - CHARIOT.png",
+    "keywords": ["determination", "victory", "willpower", "control"],
+    "upright": {
+      "meaning": "Determination, victory, willpower.",
+      "description": "The Chariot surges forward with unstoppable momentum. Through discipline and focused will, you can overcome any obstacle. Harness opposing forces, hold the reins firmly, and drive toward your goal with confidence."
+    },
+    "reversed": {
+      "meaning": "Lack of direction, aggression, losing control.",
+      "description": "The Chariot reversed warns of scattered energy or ambition without direction. You may be forcing your will where patience is needed, or losing grip on the forces you seek to command."
+    }
+  },
+  {
+    "id": "major-08",
+    "name": "Strength",
+    "suit": "Major Arcana",
+    "number": 8,
+    "image": "/images/tarot/Tarot Major - STRENGTH.png",
+    "keywords": ["courage", "compassion", "inner strength", "patience"],
+    "upright": {
+      "meaning": "Courage, compassion, inner strength.",
+      "description": "Strength is not brute force but quiet mastery. With gentle courage and deep compassion, you can tame the wildest forces within and around you. Trust in your resilience — true power flows from the heart."
+    },
+    "reversed": {
+      "meaning": "Self-doubt, weakness, insecurity.",
+      "description": "Strength reversed signals a crisis of confidence or inner turmoil. You may feel overwhelmed by forces that once seemed manageable. Reconnect with your inner courage and remember the power you carry within."
+    }
+  },
+  {
+    "id": "major-09",
+    "name": "The Hermit",
+    "suit": "Major Arcana",
+    "number": 9,
+    "image": "/images/tarot/Tarot Major - HERMIT.png",
+    "keywords": ["introspection", "solitude", "guidance", "wisdom"],
+    "upright": {
+      "meaning": "Introspection, solitude, guidance.",
+      "description": "The Hermit retreats from the noise of the world to seek truth in silence. This is a time for inner reflection, soul-searching, and quiet wisdom. The light you carry within will illuminate the path ahead."
+    },
+    "reversed": {
+      "meaning": "Isolation, loneliness, withdrawal.",
+      "description": "The Hermit reversed warns of excessive isolation or a refusal to seek help. Solitude becomes loneliness when it is driven by fear rather than purpose. Reach out — wisdom also comes through connection."
+    }
+  },
+  {
+    "id": "major-10",
+    "name": "Wheel of Fortune",
+    "suit": "Major Arcana",
+    "number": 10,
+    "image": "/images/tarot/Tarot Major - WHEEL OF FORTUNE.png",
+    "keywords": ["luck", "destiny", "change", "cycles"],
+    "upright": {
+      "meaning": "Luck, destiny, change.",
+      "description": "The great Wheel turns, bringing new seasons of fortune and fate. Change is the only constant, and the universe is aligning in your favor. Embrace the turning tides and trust that destiny is unfolding as it should."
+    },
+    "reversed": {
+      "meaning": "Bad luck, resistance to change, setbacks.",
+      "description": "The Wheel reversed suggests a downturn in fortune or a stubborn resistance to inevitable change. Remember that every low point is temporary — the Wheel will turn again."
+    }
+  },
+  {
+    "id": "major-11",
+    "name": "Justice",
+    "suit": "Major Arcana",
+    "number": 11,
+    "image": "/images/tarot/Tarot Major - JUSTICE.png",
+    "keywords": ["fairness", "truth", "accountability", "balance"],
+    "upright": {
+      "meaning": "Fairness, truth, accountability.",
+      "description": "Justice holds the scales in perfect balance, demanding honesty and integrity. The truth will come to light, and actions will have their rightful consequences. Act with fairness and trust that the universe seeks equilibrium."
+    },
+    "reversed": {
+      "meaning": "Dishonesty, injustice, avoiding accountability.",
+      "description": "Justice reversed warns of imbalance — dishonesty, unfair treatment, or a refusal to accept responsibility. Examine where truth is being bent and work to restore integrity."
+    }
+  },
+  {
+    "id": "major-12",
+    "name": "The Hanged Man",
+    "suit": "Major Arcana",
+    "number": 12,
+    "image": "/images/tarot/Tarot Major - HANGED MAN.png",
+    "keywords": ["suspension", "new perspective", "release", "sacrifice"],
+    "upright": {
+      "meaning": "Suspension, new perspective, release.",
+      "description": "The Hanged Man surrenders to a higher perspective, finding wisdom in stillness and sacrifice. Let go of control, pause your striving, and allow a new way of seeing to emerge. What seems like a setback may be a sacred pause."
+    },
+    "reversed": {
+      "meaning": "Stalling, resistance, indecision.",
+      "description": "The Hanged Man reversed suggests needless delay or a stubborn refusal to see things from a different angle. You may be stuck in a pattern that no longer serves you. Release your grip and let transformation happen."
+    }
+  },
+  {
+    "id": "major-13",
+    "name": "Death",
+    "suit": "Major Arcana",
+    "number": 13,
+    "image": "/images/tarot/Tarot Major - DEATH.png",
+    "keywords": ["transformation", "endings", "rebirth", "letting go"],
+    "upright": {
+      "meaning": "Transformation, endings, rebirth.",
+      "description": "Death is not an end but a profound transformation. Old forms must fall away to make room for the new. Embrace the closing of one chapter with grace, for a powerful rebirth awaits on the other side."
+    },
+    "reversed": {
+      "meaning": "Resistance to change, stagnation, fear of endings.",
+      "description": "Death reversed signals a clinging to what must be released. Fear of change creates stagnation. The transformation you resist is the very one that will set you free."
+    }
+  },
+  {
+    "id": "major-14",
+    "name": "Temperance",
+    "suit": "Major Arcana",
+    "number": 14,
+    "image": "/images/tarot/Tarot Major - TEMPERANCE.png",
+    "keywords": ["balance", "patience", "moderation", "harmony"],
+    "upright": {
+      "meaning": "Balance, patience, moderation.",
+      "description": "Temperance blends opposing forces into perfect harmony. Through patience and moderation, you can find the middle path that leads to lasting peace. Let your life flow with grace, blending passion with restraint."
+    },
+    "reversed": {
+      "meaning": "Imbalance, excess, impatience.",
+      "description": "Temperance reversed warns of extremes — too much of one thing and not enough of another. Impatience or overindulgence may be disrupting your equilibrium. Seek the center once more."
+    }
+  },
+  {
+    "id": "major-15",
+    "name": "The Devil",
+    "suit": "Major Arcana",
+    "number": 15,
+    "image": "/images/tarot/Tarot Major - DEVIL.png",
+    "keywords": ["addiction", "materialism", "bondage", "shadow"],
+    "upright": {
+      "meaning": "Addiction, materialism, bondage.",
+      "description": "The Devil reveals the chains that bind you — attachments, addictions, and illusions of power. These bonds are often of your own making. Recognize what holds you captive and know that you possess the power to break free."
+    },
+    "reversed": {
+      "meaning": "Liberation, release, reclaiming power.",
+      "description": "The Devil reversed heralds a breakthrough — the chains are loosening. You are beginning to see through illusions and reclaim your freedom. Continue the work of liberation."
+    }
+  },
+  {
+    "id": "major-16",
+    "name": "The Tower",
+    "suit": "Major Arcana",
+    "number": 16,
+    "image": "/images/tarot/Tarot Major - TOWER.png",
+    "keywords": ["sudden upheaval", "revelation", "chaos", "awakening"],
+    "upright": {
+      "meaning": "Sudden upheaval, revelation, chaos.",
+      "description": "The Tower strikes with lightning force, shattering illusions and false structures. Though the destruction feels devastating, it clears the way for truth and authentic rebuilding. What falls was never built on solid ground."
+    },
+    "reversed": {
+      "meaning": "Avoidance of disaster, fear of change, delayed upheaval.",
+      "description": "The Tower reversed suggests you may be narrowly avoiding a crisis or desperately holding together something that needs to fall. Delaying the inevitable only prolongs the pain."
+    }
+  },
+  {
+    "id": "major-17",
+    "name": "The Star",
+    "suit": "Major Arcana",
+    "number": 17,
+    "image": "/images/tarot/Tarot Major - STAR.png",
+    "keywords": ["hope", "inspiration", "serenity", "renewal"],
+    "upright": {
+      "meaning": "Hope, inspiration, serenity.",
+      "description": "The Star shines after the storm, offering hope, healing, and renewed faith. Pour your spirit freely into the world and trust that the universe is guiding you toward your highest purpose. Serenity awaits."
+    },
+    "reversed": {
+      "meaning": "Despair, disconnection, loss of faith.",
+      "description": "The Star reversed signals a loss of hope or a feeling of disconnection from your purpose. The light has not gone out — it is merely obscured. Seek small moments of beauty to rekindle your faith."
+    }
+  },
+  {
+    "id": "major-18",
+    "name": "The Moon",
+    "suit": "Major Arcana",
+    "number": 18,
+    "image": "/images/tarot/Tarot Major - MOON.png",
+    "keywords": ["illusion", "fear", "intuition", "the unconscious"],
+    "upright": {
+      "meaning": "Illusion, fear, intuition.",
+      "description": "The Moon casts shadows that play tricks on the mind. Not everything is as it seems. Navigate this uncertain terrain by trusting your deepest instincts rather than surface appearances. The path through darkness requires inner sight."
+    },
+    "reversed": {
+      "meaning": "Clarity, releasing fear, truth revealed.",
+      "description": "The Moon reversed brings clarity as illusions fade and fears are confronted. The fog is lifting, and what was hidden is coming into the light. Trust the emerging truth."
+    }
+  },
+  {
+    "id": "major-19",
+    "name": "The Sun",
+    "suit": "Major Arcana",
+    "number": 19,
+    "image": "/images/tarot/Tarot Major - SUN.png",
+    "keywords": ["joy", "success", "vitality", "warmth"],
+    "upright": {
+      "meaning": "Joy, success, vitality.",
+      "description": "The Sun blazes with radiant warmth, illuminating everything it touches. This is a time of joy, confidence, and abundant success. Step into the light, celebrate your achievements, and let your true self shine without reservation."
+    },
+    "reversed": {
+      "meaning": "Temporary setback, lack of clarity, diminished joy.",
+      "description": "The Sun reversed suggests that clouds are temporarily dimming your light. Joy may feel elusive or success delayed. Remember that the Sun still shines behind every cloud — this shadow will pass."
+    }
+  },
+  {
+    "id": "major-20",
+    "name": "Judgement",
+    "suit": "Major Arcana",
+    "number": 20,
+    "image": "/images/tarot/Tarot Major - JUDGEMENT.png",
+    "keywords": ["awakening", "calling", "reckoning", "renewal"],
+    "upright": {
+      "meaning": "Awakening, calling, reckoning.",
+      "description": "Judgement sounds the trumpet of awakening, calling you to rise and answer your true purpose. Reflect on your past with honesty, release old burdens, and step forward into the life you were always meant to live."
+    },
+    "reversed": {
+      "meaning": "Self-doubt, refusal to learn, harsh self-judgment.",
+      "description": "Judgement reversed warns of being too harsh on yourself or refusing to heed the call of transformation. Do not let guilt or doubt keep you from answering a higher purpose."
+    }
+  },
+  {
+    "id": "major-21",
+    "name": "The World",
+    "suit": "Major Arcana",
+    "number": 21,
+    "image": "/images/tarot/Tarot Major - WORLD.png",
+    "keywords": ["completion", "fulfillment", "travel", "wholeness"],
+    "upright": {
+      "meaning": "Completion, fulfillment, travel.",
+      "description": "The World dances in celebration of a great cycle completed. You have journeyed far, learned deeply, and arrived at a place of wholeness. Savor this moment of fulfillment before the next adventure begins."
+    },
+    "reversed": {
+      "meaning": "Incompletion, shortcuts, lack of closure.",
+      "description": "The World reversed suggests that something remains unfinished or that you are seeking shortcuts to completion. Take the time to fully close this chapter before moving on."
+    }
+  },
+  {
+    "id": "cups-01",
+    "name": "Ace of Cups",
+    "suit": "Cups",
+    "number": 1,
+    "image": "/images/tarot/Tarot Minor - CUPS - Ace of Cups.png",
+    "keywords": ["love", "new feelings", "emotional awakening", "compassion"],
+    "upright": {
+      "meaning": "Love, new feelings, emotional awakening.",
+      "description": "The Ace of Cups overflows with the pure waters of emotion and love. A new feeling is stirring — perhaps a budding romance, a deepening friendship, or a spiritual awakening. Open your heart and let it pour forth."
+    },
+    "reversed": {
+      "meaning": "Blocked emotions, emptiness, emotional loss.",
+      "description": "The Ace of Cups reversed suggests that emotions are being suppressed or that a new emotional opportunity is being missed. Something is preventing the heart from opening fully."
+    }
+  },
+  {
+    "id": "cups-02",
+    "name": "2 of Cups",
+    "suit": "Cups",
+    "number": 2,
+    "image": "/images/tarot/Tarot Minor - CUPS - 2 of Cups.png",
+    "keywords": ["partnership", "connection", "mutual attraction", "unity"],
+    "upright": {
+      "meaning": "Partnership, connection, mutual attraction.",
+      "description": "The Two of Cups celebrates the sacred bond between two souls. Whether romantic, platonic, or professional, a deep and balanced connection is forming. Meet each other with open hearts and mutual respect."
+    },
+    "reversed": {
+      "meaning": "Imbalance, broken communication, disconnection.",
+      "description": "The Two of Cups reversed warns of a partnership out of balance. One side may be giving more than the other, or communication has broken down. Work to restore equilibrium."
+    }
+  },
+  {
+    "id": "cups-03",
+    "name": "3 of Cups",
+    "suit": "Cups",
+    "number": 3,
+    "image": "/images/tarot/Tarot Minor - CUPS - 3 of Cups.png",
+    "keywords": ["friendship", "community", "celebration", "joy"],
+    "upright": {
+      "meaning": "Friendship, community, celebration.",
+      "description": "The Three of Cups raises a toast to friendship and shared joy. Gather with those who lift your spirits. Celebrate your connections, for the bonds of community are among life's greatest treasures."
+    },
+    "reversed": {
+      "meaning": "Overindulgence, gossip, isolation from friends.",
+      "description": "The Three of Cups reversed cautions against excess in social settings or toxic dynamics within a group. Step back if celebrations have become draining rather than nourishing."
+    }
+  },
+  {
+    "id": "cups-04",
+    "name": "4 of Cups",
+    "suit": "Cups",
+    "number": 4,
+    "image": "/images/tarot/Tarot Minor - CUPS - 4 of Cups.png",
+    "keywords": ["apathy", "contemplation", "discontent", "reevaluation"],
+    "upright": {
+      "meaning": "Apathy, contemplation, discontent.",
+      "description": "The Four of Cups sits in quiet dissatisfaction, turning inward. An opportunity may be right in front of you, but discontentment or apathy is blinding you to it. Look up — there is more being offered than you realize."
+    },
+    "reversed": {
+      "meaning": "New awareness, acceptance, renewed motivation.",
+      "description": "The Four of Cups reversed signals a shift out of apathy. You are beginning to see opportunities you previously overlooked. A renewed sense of motivation stirs within."
+    }
+  },
+  {
+    "id": "cups-05",
+    "name": "5 of Cups",
+    "suit": "Cups",
+    "number": 5,
+    "image": "/images/tarot/Tarot Minor - CUPS - 5 of Cups.png",
+    "keywords": ["loss", "regret", "grief", "disappointment"],
+    "upright": {
+      "meaning": "Loss, regret, grief.",
+      "description": "The Five of Cups mourns what has been spilled and lost. Grief is real and deserves to be honored. Yet even in sorrow, cups remain standing behind you. When you are ready, turn around — not all is lost."
+    },
+    "reversed": {
+      "meaning": "Acceptance, moving forward, finding peace.",
+      "description": "The Five of Cups reversed marks the beginning of healing. You are turning away from grief and toward what remains. Acceptance is dawning, and recovery is underway."
+    }
+  },
+  {
+    "id": "cups-06",
+    "name": "6 of Cups",
+    "suit": "Cups",
+    "number": 6,
+    "image": "/images/tarot/Tarot Minor - CUPS - 6 of Cups.png",
+    "keywords": ["nostalgia", "childhood", "innocence", "memories"],
+    "upright": {
+      "meaning": "Nostalgia, childhood, innocence.",
+      "description": "The Six of Cups invites you to revisit the innocence and joy of the past. Sweet memories surface, bringing comfort and warmth. Reconnect with your inner child and the simple pleasures that once brought delight."
+    },
+    "reversed": {
+      "meaning": "Living in the past, unrealistic nostalgia, stuck.",
+      "description": "The Six of Cups reversed warns against romanticizing the past at the expense of the present. Fond memories are treasures, but clinging to them can prevent growth."
+    }
+  },
+  {
+    "id": "cups-07",
+    "name": "7 of Cups",
+    "suit": "Cups",
+    "number": 7,
+    "image": "/images/tarot/Tarot Minor - CUPS - 7 of Cups.png",
+    "keywords": ["choices", "dreams", "fantasy", "illusion"],
+    "upright": {
+      "meaning": "Choices, dreams, fantasy.",
+      "description": "The Seven of Cups presents a dazzling array of possibilities, each more tempting than the last. But not all that glitters is real. Discern between genuine opportunity and wishful thinking before committing your heart."
+    },
+    "reversed": {
+      "meaning": "Clarity, focus, making a decision.",
+      "description": "The Seven of Cups reversed cuts through the fog of fantasy. You are gaining clarity about what truly matters and are ready to commit to a single path with conviction."
+    }
+  },
+  {
+    "id": "cups-08",
+    "name": "8 of Cups",
+    "suit": "Cups",
+    "number": 8,
+    "image": "/images/tarot/Tarot Minor - CUPS - 8 of Cups.png",
+    "keywords": ["moving on", "departure", "seeking truth", "letting go"],
+    "upright": {
+      "meaning": "Moving on, departure, seeking deeper truth.",
+      "description": "The Eight of Cups walks away from what once brought fulfillment but no longer serves the soul. This departure is not failure — it is courage. Something deeper calls, and you must follow."
+    },
+    "reversed": {
+      "meaning": "Fear of change, stagnation, clinging to comfort.",
+      "description": "The Eight of Cups reversed suggests a reluctance to leave behind what is familiar, even when it no longer nourishes you. The fear of the unknown keeps you tethered to the empty."
+    }
+  },
+  {
+    "id": "cups-09",
+    "name": "9 of Cups",
+    "suit": "Cups",
+    "number": 9,
+    "image": "/images/tarot/Tarot Minor - CUPS - 9 of Cups.png",
+    "keywords": ["wish fulfillment", "satisfaction", "contentment", "gratitude"],
+    "upright": {
+      "meaning": "Wish fulfillment, satisfaction, contentment.",
+      "description": "The Nine of Cups is the wish card — your heart's desire is within reach. Savor this moment of deep satisfaction and gratitude. You have earned this abundance through your emotional journey."
+    },
+    "reversed": {
+      "meaning": "Dissatisfaction, greed, unfulfilled wishes.",
+      "description": "The Nine of Cups reversed hints that getting what you wanted has not brought the expected joy, or that desires have become excessive. True contentment comes from within, not from accumulation."
+    }
+  },
+  {
+    "id": "cups-10",
+    "name": "10 of Cups",
+    "suit": "Cups",
+    "number": 10,
+    "image": "/images/tarot/Tarot Minor - CUPS - 10 of Cups.png",
+    "keywords": ["harmony", "joy", "family", "emotional fulfillment"],
+    "upright": {
+      "meaning": "Harmony, joy, emotional fulfillment.",
+      "description": "The Ten of Cups is the rainbow after the rain — a vision of lasting happiness and emotional wholeness. Love, family, and community come together in beautiful harmony. This is the heart fully at home."
+    },
+    "reversed": {
+      "meaning": "Broken harmony, family tension, unrealistic expectations.",
+      "description": "The Ten of Cups reversed reveals cracks in what appeared to be domestic bliss. Family tensions, unmet expectations, or a gap between the dream and reality need attention."
+    }
+  },
+  {
+    "id": "cups-11",
+    "name": "Page of Cups",
+    "suit": "Cups",
+    "number": 11,
+    "image": "/images/tarot/Tarot Minor - CUPS - Page of Cups.png",
+    "keywords": ["curiosity", "creativity", "intuitive messages", "youthful emotion"],
+    "upright": {
+      "meaning": "Curiosity, creativity, intuitive messages.",
+      "description": "The Page of Cups arrives with a message from the heart — a creative spark, an intuitive nudge, or an unexpected emotional offering. Approach with childlike openness and let wonder guide you."
+    },
+    "reversed": {
+      "meaning": "Emotional immaturity, creative blocks, escapism.",
+      "description": "The Page of Cups reversed suggests emotional immaturity or a creative vision that has lost its grounding. Dreams without action become mere escapism."
+    }
+  },
+  {
+    "id": "cups-12",
+    "name": "Knight of Cups",
+    "suit": "Cups",
+    "number": 12,
+    "image": "/images/tarot/Tarot Minor - CUPS - Knight of Cups.png",
+    "keywords": ["romance", "charm", "idealism", "following the heart"],
+    "upright": {
+      "meaning": "Romance, charm, following the heart.",
+      "description": "The Knight of Cups rides forth on a wave of romantic idealism and creative passion. Led by the heart rather than the head, this knight pursues beauty, love, and artistic expression with graceful devotion."
+    },
+    "reversed": {
+      "meaning": "Moodiness, unrealistic expectations, jealousy.",
+      "description": "The Knight of Cups reversed warns of emotions unchecked — jealousy, moodiness, or chasing an idealized vision that does not exist. Ground your romantic impulses in reality."
+    }
+  },
+  {
+    "id": "cups-13",
+    "name": "Queen of Cups",
+    "suit": "Cups",
+    "number": 13,
+    "image": "/images/tarot/Tarot Minor - CUPS - Queen of Cups.png",
+    "keywords": ["compassion", "intuition", "emotional security", "nurturing"],
+    "upright": {
+      "meaning": "Compassion, intuition, emotional security.",
+      "description": "The Queen of Cups embodies deep emotional wisdom and nurturing compassion. She trusts her intuition completely and offers a safe harbor for all who seek her counsel. Let your empathy be your guide."
+    },
+    "reversed": {
+      "meaning": "Emotional instability, codependency, insecurity.",
+      "description": "The Queen of Cups reversed warns of emotional overwhelm or losing yourself in another's feelings. Boundaries are needed to protect your sensitive heart."
+    }
+  },
+  {
+    "id": "cups-14",
+    "name": "King of Cups",
+    "suit": "Cups",
+    "number": 14,
+    "image": "/images/tarot/Tarot Minor - CUPS - King of Cups.png",
+    "keywords": ["emotional balance", "diplomacy", "wisdom", "calm authority"],
+    "upright": {
+      "meaning": "Emotional balance, diplomacy, wisdom.",
+      "description": "The King of Cups rules his realm with calm authority and emotional mastery. He balances heart and mind with wisdom, navigating turbulent waters without losing his composure. Lead with both strength and sensitivity."
+    },
+    "reversed": {
+      "meaning": "Emotional manipulation, volatility, suppressed feelings.",
+      "description": "The King of Cups reversed suggests emotions being used as weapons or, alternatively, deeply suppressed. The calm exterior may hide a storm within that needs acknowledgment."
+    }
+  },
+  {
+    "id": "swords-01",
+    "name": "Ace of Swords",
+    "suit": "Swords",
+    "number": 1,
+    "image": "/images/tarot/Tarot Minor - SWORDS - Ace of Swords.png",
+    "keywords": ["clarity", "truth", "breakthrough", "mental power"],
+    "upright": {
+      "meaning": "Clarity, truth, breakthrough.",
+      "description": "The Ace of Swords cuts through confusion with a single stroke of truth. A breakthrough in understanding is at hand. Seize this moment of mental clarity and use it to cut away what no longer serves your highest purpose."
+    },
+    "reversed": {
+      "meaning": "Confusion, miscommunication, clouded judgment.",
+      "description": "The Ace of Swords reversed suggests that truth is obscured and communication has gone awry. Mental fog prevents clear thinking. Slow down before making decisions."
+    }
+  },
+  {
+    "id": "swords-02",
+    "name": "2 of Swords",
+    "suit": "Swords",
+    "number": 2,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 2 of Swords.png",
+    "keywords": ["stalemate", "difficult choices", "avoidance", "denial"],
+    "upright": {
+      "meaning": "Stalemate, difficult choices, avoidance.",
+      "description": "The Two of Swords stands blindfolded at a crossroads, refusing to see what must be faced. A difficult choice demands your attention, but avoidance only prolongs the tension. Remove the blindfold and choose."
+    },
+    "reversed": {
+      "meaning": "Information overload, indecision resolved, truth emerging.",
+      "description": "The Two of Swords reversed signals that the blindfold is coming off — for better or worse. Hidden information surfaces, forcing a decision that can no longer be postponed."
+    }
+  },
+  {
+    "id": "swords-03",
+    "name": "3 of Swords",
+    "suit": "Swords",
+    "number": 3,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 3 of Swords.png",
+    "keywords": ["heartbreak", "sorrow", "grief", "painful truth"],
+    "upright": {
+      "meaning": "Heartbreak, sorrow, painful truth.",
+      "description": "The Three of Swords pierces the heart with unavoidable pain. A betrayal, loss, or harsh truth strikes deep. Honor your grief, for it is the price of having loved and trusted. Healing begins with acknowledgment."
+    },
+    "reversed": {
+      "meaning": "Recovery, forgiveness, releasing pain.",
+      "description": "The Three of Swords reversed marks the slow withdrawal of blades from the heart. Pain is easing, forgiveness is possible, and recovery has begun. Let the wounds close."
+    }
+  },
+  {
+    "id": "swords-04",
+    "name": "4 of Swords",
+    "suit": "Swords",
+    "number": 4,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 4 of Swords.png",
+    "keywords": ["rest", "recovery", "contemplation", "retreat"],
+    "upright": {
+      "meaning": "Rest, recovery, contemplation.",
+      "description": "The Four of Swords demands a sacred pause. After battle and turmoil, the mind and body need stillness to heal. Retreat from the world, restore your energy, and let silence work its restorative magic."
+    },
+    "reversed": {
+      "meaning": "Restlessness, burnout, returning too soon.",
+      "description": "The Four of Swords reversed warns of jumping back into action before recovery is complete. Restlessness may drive you forward prematurely. True strength includes knowing when to rest."
+    }
+  },
+  {
+    "id": "swords-05",
+    "name": "5 of Swords",
+    "suit": "Swords",
+    "number": 5,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 5 of Swords.png",
+    "keywords": ["conflict", "loss", "defeat", "hollow victory"],
+    "upright": {
+      "meaning": "Conflict, loss, hollow victory.",
+      "description": "The Five of Swords stands on a battlefield where no one truly wins. This conflict has left all parties diminished. Consider whether the fight is worth the cost, and whether pride has replaced wisdom."
+    },
+    "reversed": {
+      "meaning": "Reconciliation, making amends, moving past conflict.",
+      "description": "The Five of Swords reversed signals a desire to end hostilities and make peace. The swords are being lowered. This is the time for reconciliation and letting go of old grudges."
+    }
+  },
+  {
+    "id": "swords-06",
+    "name": "6 of Swords",
+    "suit": "Swords",
+    "number": 6,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 6 of Swords.png",
+    "keywords": ["transition", "moving on", "calmer waters", "healing journey"],
+    "upright": {
+      "meaning": "Transition, moving on, calmer waters.",
+      "description": "The Six of Swords carries you across troubled waters toward a calmer shore. The journey may be somber, but it is necessary. You are leaving behind what caused pain and moving toward peace and clarity."
+    },
+    "reversed": {
+      "meaning": "Stuck in the past, resistance to moving on, unresolved baggage.",
+      "description": "The Six of Swords reversed suggests difficulty leaving a painful situation behind. Emotional baggage weighs the boat down, preventing forward movement. Lighten your load."
+    }
+  },
+  {
+    "id": "swords-07",
+    "name": "7 of Swords",
+    "suit": "Swords",
+    "number": 7,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 7 of Swords.png",
+    "keywords": ["deception", "strategy", "stealth", "cunning"],
+    "upright": {
+      "meaning": "Deception, strategy, stealth.",
+      "description": "The Seven of Swords moves in shadows, taking what it can by cunning rather than confrontation. Someone may not be playing fair — or you yourself may be tempted to take shortcuts. Consider the cost of deception."
+    },
+    "reversed": {
+      "meaning": "Confession, coming clean, getting caught.",
+      "description": "The Seven of Swords reversed brings hidden actions to light. Secrets are being revealed, and the truth is catching up. It may be time to come clean before you are exposed."
+    }
+  },
+  {
+    "id": "swords-08",
+    "name": "8 of Swords",
+    "suit": "Swords",
+    "number": 8,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 8 of Swords.png",
+    "keywords": ["restriction", "fear", "trapped", "self-imposed limits"],
+    "upright": {
+      "meaning": "Restriction, fear, self-imposed limits.",
+      "description": "The Eight of Swords stands bound and blindfolded, surrounded by blades — yet the bindings are loose and the prison is of the mind. Fear and negative thinking have created walls that do not truly exist. You are freer than you believe."
+    },
+    "reversed": {
+      "meaning": "Liberation, new perspective, overcoming fear.",
+      "description": "The Eight of Swords reversed marks the moment of breaking free from mental imprisonment. The blindfold falls, and you see that escape was always possible. Embrace your liberation."
+    }
+  },
+  {
+    "id": "swords-09",
+    "name": "9 of Swords",
+    "suit": "Swords",
+    "number": 9,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 9 of Swords.png",
+    "keywords": ["anxiety", "nightmares", "worry", "despair"],
+    "upright": {
+      "meaning": "Anxiety, nightmares, despair.",
+      "description": "The Nine of Swords wakes in the darkness, tormented by worry and dread. The mind races with worst-case scenarios that may never come to pass. Recognize that fear often magnifies what reality cannot support."
+    },
+    "reversed": {
+      "meaning": "Hope emerging, releasing worry, recovery from anxiety.",
+      "description": "The Nine of Swords reversed suggests that the darkest night is ending. Worries are beginning to lose their grip, and hope is emerging from the shadows. Help is available — reach for it."
+    }
+  },
+  {
+    "id": "swords-10",
+    "name": "10 of Swords",
+    "suit": "Swords",
+    "number": 10,
+    "image": "/images/tarot/Tarot Minor - SWORDS - 10 of Swords.png",
+    "keywords": ["rock bottom", "endings", "defeat", "dawn after darkness"],
+    "upright": {
+      "meaning": "Rock bottom, painful endings, defeat.",
+      "description": "The Ten of Swords marks the lowest point — a devastating end to a painful chapter. Yet even here, dawn breaks on the horizon. This is the end, not of everything, but of what needed to die so something new could be born."
+    },
+    "reversed": {
+      "meaning": "Recovery, rising again, worst is over.",
+      "description": "The Ten of Swords reversed signals that the worst has passed. You are beginning to rise from the ashes of defeat. The blades are being removed one by one, and healing has begun."
+    }
+  },
+  {
+    "id": "swords-11",
+    "name": "Page of Swords",
+    "suit": "Swords",
+    "number": 11,
+    "image": "/images/tarot/Tarot Minor - SWORDS - Page of Swords.png",
+    "keywords": ["truth", "communication", "curiosity", "vigilance"],
+    "upright": {
+      "meaning": "Truth, communication, curiosity.",
+      "description": "The Page of Swords is the sharp-eyed messenger, ever watchful and eager for truth. This youthful energy brings a thirst for knowledge and a readiness to speak boldly. Pursue the truth with courage and clarity."
+    },
+    "reversed": {
+      "meaning": "Gossip, haste, scattered thinking.",
+      "description": "The Page of Swords reversed warns of words used carelessly — gossip, hasty conclusions, or speaking before thinking. Channel your mental energy with more discipline."
+    }
+  },
+  {
+    "id": "swords-12",
+    "name": "Knight of Swords",
+    "suit": "Swords",
+    "number": 12,
+    "image": "/images/tarot/Tarot Minor - SWORDS - Knight of Swords.png",
+    "keywords": ["ambition", "action", "swift change", "directness"],
+    "upright": {
+      "meaning": "Ambition, action, swift change.",
+      "description": "The Knight of Swords charges into battle with fierce determination and razor-sharp focus. This is a time for decisive action and bold moves. Strike fast and true — hesitation is your only enemy."
+    },
+    "reversed": {
+      "meaning": "Recklessness, impulsiveness, burnout.",
+      "description": "The Knight of Swords reversed warns of action without forethought. Charging ahead blindly leads to burnout and collateral damage. Temper your ambition with strategy."
+    }
+  },
+  {
+    "id": "swords-13",
+    "name": "Queen of Swords",
+    "suit": "Swords",
+    "number": 13,
+    "image": "/images/tarot/Tarot Minor - SWORDS - Queen of Swords.png",
+    "keywords": ["independence", "honesty", "wisdom", "clear boundaries"],
+    "upright": {
+      "meaning": "Independence, honesty, wisdom.",
+      "description": "The Queen of Swords sees the world with uncompromising clarity. She values truth above comfort and speaks with the authority of hard-won wisdom. Set clear boundaries, honor your independence, and let no one cloud your judgment."
+    },
+    "reversed": {
+      "meaning": "Cold-heartedness, bitterness, overly critical.",
+      "description": "The Queen of Swords reversed warns of intellect divorced from empathy. Sharpness has become cutting, and clarity has turned cold. Seek to balance truth with compassion."
+    }
+  },
+  {
+    "id": "swords-14",
+    "name": "King of Swords",
+    "suit": "Swords",
+    "number": 14,
+    "image": "/images/tarot/Tarot Minor - SWORDS - King of Swords.png",
+    "keywords": ["authority", "logic", "ethical judgment", "intellectual power"],
+    "upright": {
+      "meaning": "Authority, logic, ethical judgment.",
+      "description": "The King of Swords commands with the power of a disciplined mind and unshakable ethics. His judgments are fair, his logic impeccable, and his authority earned through integrity. Lead with reason and moral clarity."
+    },
+    "reversed": {
+      "meaning": "Abuse of power, manipulation, tyranny of intellect.",
+      "description": "The King of Swords reversed warns of intellect weaponized — using logic to manipulate or authority to dominate. Power without ethics corrodes everything it touches."
+    }
+  },
+  {
+    "id": "pentacles-01",
+    "name": "Ace of Pentacles",
+    "suit": "Pentacles",
+    "number": 1,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - Ace of Pentacles.png",
+    "keywords": ["opportunity", "prosperity", "new venture", "abundance"],
+    "upright": {
+      "meaning": "Opportunity, prosperity, new venture.",
+      "description": "The Ace of Pentacles offers a golden opportunity rooted in the material world. A new venture, financial gain, or tangible reward is within your grasp. Plant this seed with care, and it will grow into lasting abundance."
+    },
+    "reversed": {
+      "meaning": "Missed opportunity, poor planning, lack of foresight.",
+      "description": "The Ace of Pentacles reversed warns of an opportunity slipping through your fingers due to poor planning or hesitation. Act with intention or risk losing what was offered."
+    }
+  },
+  {
+    "id": "pentacles-02",
+    "name": "2 of Pentacles",
+    "suit": "Pentacles",
+    "number": 2,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 2 of Pentacles.png",
+    "keywords": ["balance", "juggling priorities", "adaptability", "time management"],
+    "upright": {
+      "meaning": "Balance, juggling priorities, adaptability.",
+      "description": "The Two of Pentacles dances between competing demands with skillful agility. Life requires you to balance multiple responsibilities — stay flexible, keep moving, and trust your ability to manage the rhythm of change."
+    },
+    "reversed": {
+      "meaning": "Overwhelm, disorganization, financial imbalance.",
+      "description": "The Two of Pentacles reversed signals that the juggling act is failing. Too many demands are creating chaos. Simplify, prioritize, and let go of what you cannot sustain."
+    }
+  },
+  {
+    "id": "pentacles-03",
+    "name": "3 of Pentacles",
+    "suit": "Pentacles",
+    "number": 3,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 3 of Pentacles.png",
+    "keywords": ["teamwork", "collaboration", "craftsmanship", "learning"],
+    "upright": {
+      "meaning": "Teamwork, collaboration, craftsmanship.",
+      "description": "The Three of Pentacles honors the power of skilled collaboration. Great works are built not in isolation but through the combined talents of dedicated individuals. Seek feedback, share your expertise, and build something lasting together."
+    },
+    "reversed": {
+      "meaning": "Lack of teamwork, poor quality, disharmony at work.",
+      "description": "The Three of Pentacles reversed warns of collaborative breakdown — misaligned goals, poor workmanship, or a refusal to cooperate. Quality suffers when the team is fractured."
+    }
+  },
+  {
+    "id": "pentacles-04",
+    "name": "4 of Pentacles",
+    "suit": "Pentacles",
+    "number": 4,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 4 of Pentacles.png",
+    "keywords": ["control", "holding on", "security", "possessiveness"],
+    "upright": {
+      "meaning": "Control, holding on, security.",
+      "description": "The Four of Pentacles grips tightly to what it has, seeking security through control. While prudent stewardship is wise, clinging too tightly to possessions or stability can become its own prison. Know when to hold and when to release."
+    },
+    "reversed": {
+      "meaning": "Generosity, releasing control, spending freely.",
+      "description": "The Four of Pentacles reversed signals a loosening of the grip — either generous giving or reckless spending. Examine whether you are releasing with wisdom or losing without awareness."
+    }
+  },
+  {
+    "id": "pentacles-05",
+    "name": "5 of Pentacles",
+    "suit": "Pentacles",
+    "number": 5,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 5 of Pentacles.png",
+    "keywords": ["hardship", "insecurity", "poverty", "isolation"],
+    "upright": {
+      "meaning": "Hardship, insecurity, poverty.",
+      "description": "The Five of Pentacles trudges through the cold of material or spiritual hardship. Loss and insecurity weigh heavy. Yet a warm light shines nearby — help is available if you are willing to ask for it. You do not have to endure this alone."
+    },
+    "reversed": {
+      "meaning": "Recovery from hardship, finding help, spiritual renewal.",
+      "description": "The Five of Pentacles reversed marks a turning point — you are finding your way back from loss. Resources appear, doors open, and the worst of the hardship is behind you."
+    }
+  },
+  {
+    "id": "pentacles-06",
+    "name": "6 of Pentacles",
+    "suit": "Pentacles",
+    "number": 6,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 6 of Pentacles.png",
+    "keywords": ["generosity", "giving", "receiving", "charity"],
+    "upright": {
+      "meaning": "Generosity, giving and receiving, charity.",
+      "description": "The Six of Pentacles holds the scales of generosity in balance. Whether you are giving or receiving, this card calls for fairness and gratitude. Share your abundance wisely, and accept help with grace when it is offered."
+    },
+    "reversed": {
+      "meaning": "Strings attached, inequality, debt.",
+      "description": "The Six of Pentacles reversed warns that generosity may come with hidden conditions. Power dynamics are at play — one side holds too much control. Seek true equality in your exchanges."
+    }
+  },
+  {
+    "id": "pentacles-07",
+    "name": "7 of Pentacles",
+    "suit": "Pentacles",
+    "number": 7,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 7 of Pentacles.png",
+    "keywords": ["patience", "long-term investment", "assessment", "perseverance"],
+    "upright": {
+      "meaning": "Patience, long-term investment, assessment.",
+      "description": "The Seven of Pentacles pauses to survey the garden of effort. Seeds planted long ago are beginning to grow, but the harvest is not yet ready. Be patient, assess your progress, and trust in the slow work of cultivation."
+    },
+    "reversed": {
+      "meaning": "Impatience, wasted effort, poor returns.",
+      "description": "The Seven of Pentacles reversed suggests frustration with slow results or the realization that effort has been invested in the wrong place. Reassess before investing more time and energy."
+    }
+  },
+  {
+    "id": "pentacles-08",
+    "name": "8 of Pentacles",
+    "suit": "Pentacles",
+    "number": 8,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 8 of Pentacles.png",
+    "keywords": ["skill", "craftsmanship", "diligence", "mastery"],
+    "upright": {
+      "meaning": "Skill, craftsmanship, diligence.",
+      "description": "The Eight of Pentacles is the master craftsperson at their workbench, perfecting their art one piece at a time. Dedicate yourself to honing your skills through patient practice. Mastery is not talent alone — it is devotion."
+    },
+    "reversed": {
+      "meaning": "Lack of focus, perfectionism, shortcuts.",
+      "description": "The Eight of Pentacles reversed warns of sloppy work, a lack of dedication, or perfectionism that prevents completion. Find the balance between excellence and progress."
+    }
+  },
+  {
+    "id": "pentacles-09",
+    "name": "9 of Pentacles",
+    "suit": "Pentacles",
+    "number": 9,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 9 of Pentacles.png",
+    "keywords": ["independence", "abundance", "self-sufficiency", "luxury"],
+    "upright": {
+      "meaning": "Independence, abundance, self-sufficiency.",
+      "description": "The Nine of Pentacles stands in a garden of personal achievement. Through discipline and hard work, you have created a life of comfort and independence. Enjoy the fruits of your labor with quiet pride — you have earned this."
+    },
+    "reversed": {
+      "meaning": "Over-dependence, financial setback, superficial success.",
+      "description": "The Nine of Pentacles reversed hints at success that feels hollow or independence that has been compromised. Examine whether your abundance is built on a solid foundation."
+    }
+  },
+  {
+    "id": "pentacles-10",
+    "name": "10 of Pentacles",
+    "suit": "Pentacles",
+    "number": 10,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - 10 of Pentacles.png",
+    "keywords": ["wealth", "legacy", "stability", "family fortune"],
+    "upright": {
+      "meaning": "Wealth, legacy, stability.",
+      "description": "The Ten of Pentacles represents generational wealth, enduring stability, and the legacy you leave behind. This is prosperity in its fullest sense — not just financial, but the richness of family, tradition, and lasting foundations."
+    },
+    "reversed": {
+      "meaning": "Financial failure, family disputes, loss of legacy.",
+      "description": "The Ten of Pentacles reversed warns of instability in what seemed secure — family disagreements over wealth, financial loss, or a legacy at risk. Protect what matters most."
+    }
+  },
+  {
+    "id": "pentacles-11",
+    "name": "Page of Pentacles",
+    "suit": "Pentacles",
+    "number": 11,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - Page of Pentacles.png",
+    "keywords": ["learning", "ambition", "practicality", "new opportunity"],
+    "upright": {
+      "meaning": "Learning, ambition, practicality.",
+      "description": "The Page of Pentacles studies the golden coin with eager focus, ready to learn and grow. A new educational or financial opportunity presents itself. Approach it with diligence, curiosity, and a practical mindset."
+    },
+    "reversed": {
+      "meaning": "Lack of progress, procrastination, missed opportunity.",
+      "description": "The Page of Pentacles reversed suggests that an opportunity for growth is being neglected through laziness or lack of focus. Get back to the work that builds your future."
+    }
+  },
+  {
+    "id": "pentacles-12",
+    "name": "Knight of Pentacles",
+    "suit": "Pentacles",
+    "number": 12,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - Knight of Pentacles.png",
+    "keywords": ["persistence", "responsibility", "hard work", "reliability"],
+    "upright": {
+      "meaning": "Persistence, responsibility, hard work.",
+      "description": "The Knight of Pentacles is the most steadfast of all knights — methodical, reliable, and tireless. Progress may be slow, but every step is sure. Trust in the power of consistent effort and unwavering dedication."
+    },
+    "reversed": {
+      "meaning": "Stagnation, laziness, obsession with perfection.",
+      "description": "The Knight of Pentacles reversed warns of being stuck in a rut or so focused on details that forward motion stops entirely. Persistence becomes stubbornness without flexibility."
+    }
+  },
+  {
+    "id": "pentacles-13",
+    "name": "Queen of Pentacles",
+    "suit": "Pentacles",
+    "number": 13,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - Queen of Pentacles.png",
+    "keywords": ["nurturing", "resourcefulness", "security", "abundance"],
+    "upright": {
+      "meaning": "Nurturing, resourcefulness, security.",
+      "description": "The Queen of Pentacles creates abundance through practical wisdom and generous nurturing. She builds a warm, secure home where all things flourish. Balance material success with the care of those you love."
+    },
+    "reversed": {
+      "meaning": "Smothering, financial insecurity, work-life imbalance.",
+      "description": "The Queen of Pentacles reversed signals an imbalance between material pursuits and emotional care. Either work is consuming everything, or nurturing has become controlling."
+    }
+  },
+  {
+    "id": "pentacles-14",
+    "name": "King of Pentacles",
+    "suit": "Pentacles",
+    "number": 14,
+    "image": "/images/tarot/Tarot Minor - PENTACLES - King of Pentacles.png",
+    "keywords": ["abundance", "leadership", "financial mastery", "stability"],
+    "upright": {
+      "meaning": "Abundance, leadership, financial mastery.",
+      "description": "The King of Pentacles sits upon a throne built from years of wise investment and disciplined management. He is the ultimate provider and master builder. Wealth and stability are yours to command through patient, strategic leadership."
+    },
+    "reversed": {
+      "meaning": "Greed, materialism, poor financial management.",
+      "description": "The King of Pentacles reversed warns of wealth pursued without wisdom — greed, wasteful spending, or using financial power to dominate others. True prosperity requires integrity."
+    }
+  },
+  {
+    "id": "wands-01",
+    "name": "Ace of Wands",
+    "suit": "Wands",
+    "number": 1,
+    "image": "/images/tarot/Tarot Minor - WANDS - Ace of Wands.png",
+    "keywords": ["inspiration", "potential", "new beginnings", "creative spark"],
+    "upright": {
+      "meaning": "Inspiration, potential, new beginnings.",
+      "description": "The Ace of Wands ignites with pure creative fire. A powerful new beginning is at hand — a burst of inspiration, a bold idea, or a passionate new direction. Seize this spark and let it fuel your next great adventure."
+    },
+    "reversed": {
+      "meaning": "Delays, lack of motivation, creative block.",
+      "description": "The Ace of Wands reversed suggests that creative energy is stalled or an exciting opportunity is being delayed. The spark is there but something is preventing it from catching fire."
+    }
+  },
+  {
+    "id": "wands-02",
+    "name": "2 of Wands",
+    "suit": "Wands",
+    "number": 2,
+    "image": "/images/tarot/Tarot Minor - WANDS - 2 of Wands.png",
+    "keywords": ["choices", "planning", "discovery", "future vision"],
+    "upright": {
+      "meaning": "Choices, planning, discovery.",
+      "description": "The Two of Wands gazes out over the world with a globe in hand, contemplating the vast potential ahead. Plans are forming, and the horizon beckons. Make your choice boldly — the world is waiting for your vision."
+    },
+    "reversed": {
+      "meaning": "Fear of the unknown, lack of planning, playing it safe.",
+      "description": "The Two of Wands reversed warns of shrinking from the unknown or failing to plan adequately. The comfort zone becomes a cage when it prevents growth."
+    }
+  },
+  {
+    "id": "wands-03",
+    "name": "3 of Wands",
+    "suit": "Wands",
+    "number": 3,
+    "image": "/images/tarot/Tarot Minor - WANDS - 3 of Wands.png",
+    "keywords": ["growth", "vision", "expansion", "foresight"],
+    "upright": {
+      "meaning": "Growth, vision, expansion.",
+      "description": "The Three of Wands watches ships sail toward the horizon, carrying the fruits of wise planning. Your efforts are beginning to expand beyond their original scope. The vision is working — keep your eyes on the distant shore."
+    },
+    "reversed": {
+      "meaning": "Frustration, delays, obstacles to expansion.",
+      "description": "The Three of Wands reversed suggests that expansion is meeting resistance. Plans are delayed, and the expected returns have not arrived. Patience and course correction may be needed."
+    }
+  },
+  {
+    "id": "wands-04",
+    "name": "4 of Wands",
+    "suit": "Wands",
+    "number": 4,
+    "image": "/images/tarot/Tarot Minor - WANDS - 4 of Wands.png",
+    "keywords": ["celebration", "stability", "homecoming", "community"],
+    "upright": {
+      "meaning": "Celebration, stability, homecoming.",
+      "description": "The Four of Wands raises a joyful canopy of celebration. A milestone has been reached, and it is time to honor the achievement with community and gratitude. Enjoy this moment of stability and shared happiness."
+    },
+    "reversed": {
+      "meaning": "Instability, lack of support, cancelled celebrations.",
+      "description": "The Four of Wands reversed suggests that celebrations are premature or that the foundation beneath the joy is shakier than it appears. Shore up your base before celebrating."
+    }
+  },
+  {
+    "id": "wands-05",
+    "name": "5 of Wands",
+    "suit": "Wands",
+    "number": 5,
+    "image": "/images/tarot/Tarot Minor - WANDS - 5 of Wands.png",
+    "keywords": ["conflict", "competition", "tension", "disagreement"],
+    "upright": {
+      "meaning": "Conflict, competition, tension.",
+      "description": "The Five of Wands clashes in spirited competition. Multiple forces vie for dominance, creating tension and conflict. This struggle can be creative or destructive — channel the competitive energy into growth rather than chaos."
+    },
+    "reversed": {
+      "meaning": "Avoiding conflict, finding common ground, resolution.",
+      "description": "The Five of Wands reversed signals an easing of tensions. Conflicts are resolving, competitors are finding common ground, or you are choosing to step away from unnecessary battles."
+    }
+  },
+  {
+    "id": "wands-06",
+    "name": "6 of Wands",
+    "suit": "Wands",
+    "number": 6,
+    "image": "/images/tarot/Tarot Minor - WANDS - 6 of Wands.png",
+    "keywords": ["success", "recognition", "victory", "acclaim"],
+    "upright": {
+      "meaning": "Success, recognition, victory.",
+      "description": "The Six of Wands rides in triumph, laurels held high. Victory is yours, and the world recognizes your achievement. Accept the acclaim with grace and let this success fuel your confidence for the journey ahead."
+    },
+    "reversed": {
+      "meaning": "Ego, fall from grace, lack of recognition.",
+      "description": "The Six of Wands reversed warns that success may be going to your head, or that the recognition you expected has not arrived. Stay humble and grounded regardless of external validation."
+    }
+  },
+  {
+    "id": "wands-07",
+    "name": "7 of Wands",
+    "suit": "Wands",
+    "number": 7,
+    "image": "/images/tarot/Tarot Minor - WANDS - 7 of Wands.png",
+    "keywords": ["defense", "perseverance", "standing your ground", "challenge"],
+    "upright": {
+      "meaning": "Defense, perseverance, standing your ground.",
+      "description": "The Seven of Wands stands on higher ground, defending a hard-won position against challengers below. You have earned your place — do not yield it lightly. Draw on your courage and hold firm in the face of opposition."
+    },
+    "reversed": {
+      "meaning": "Overwhelm, giving up, feeling vulnerable.",
+      "description": "The Seven of Wands reversed suggests exhaustion from constant defense. The attacks are wearing you down, and you may be tempted to surrender your position. Seek allies and rest before the next stand."
+    }
+  },
+  {
+    "id": "wands-08",
+    "name": "8 of Wands",
+    "suit": "Wands",
+    "number": 8,
+    "image": "/images/tarot/Tarot Minor - WANDS - 8 of Wands.png",
+    "keywords": ["swift action", "movement", "momentum", "rapid progress"],
+    "upright": {
+      "meaning": "Swift action, movement, rapid progress.",
+      "description": "The Eight of Wands flies through the air with unstoppable momentum. Events are accelerating, messages are arriving, and things are moving fast. Ride this wave of energy and stay nimble — the pace will not slow for anyone."
+    },
+    "reversed": {
+      "meaning": "Delays, frustration, lost momentum.",
+      "description": "The Eight of Wands reversed signals that rapid progress has stalled. Delays, miscommunications, or obstacles are slowing what should be swift. Patience is required until the momentum returns."
+    }
+  },
+  {
+    "id": "wands-09",
+    "name": "9 of Wands",
+    "suit": "Wands",
+    "number": 9,
+    "image": "/images/tarot/Tarot Minor - WANDS - 9 of Wands.png",
+    "keywords": ["resilience", "anticipation", "persistence", "last stand"],
+    "upright": {
+      "meaning": "Resilience, anticipation, persistence.",
+      "description": "The Nine of Wands stands battered but unbowed, ready for one final challenge. You have been through much, and weariness is real — but the finish line is near. Summon your remaining strength for this last push."
+    },
+    "reversed": {
+      "meaning": "Exhaustion, giving up, paranoia.",
+      "description": "The Nine of Wands reversed signals that the fight has taken too much from you. Exhaustion or paranoia clouds your judgment. Sometimes the bravest act is knowing when to rest or ask for help."
+    }
+  },
+  {
+    "id": "wands-10",
+    "name": "10 of Wands",
+    "suit": "Wands",
+    "number": 10,
+    "image": "/images/tarot/Tarot Minor - WANDS - 10 of Wands.png",
+    "keywords": ["burden", "responsibility", "hard work", "overwhelm"],
+    "upright": {
+      "meaning": "Burden, responsibility, overwhelm.",
+      "description": "The Ten of Wands staggers under the weight of too many obligations. You have taken on more than one person can carry. The destination is close, but the load is crushing. Delegate, prioritize, or set something down before you collapse."
+    },
+    "reversed": {
+      "meaning": "Release, delegation, lightening the load.",
+      "description": "The Ten of Wands reversed marks the moment of putting the burden down. You are learning to delegate, say no, or release responsibilities that were never truly yours. The weight is lifting."
+    }
+  },
+  {
+    "id": "wands-11",
+    "name": "Page of Wands",
+    "suit": "Wands",
+    "number": 11,
+    "image": "/images/tarot/Tarot Minor - WANDS - Page of Wands.png",
+    "keywords": ["enthusiasm", "new ideas", "exploration", "free spirit"],
+    "upright": {
+      "meaning": "Enthusiasm, new ideas, exploration.",
+      "description": "The Page of Wands crackles with youthful energy and excitement for new possibilities. A fresh idea or adventure is calling to you. Embrace your enthusiasm, explore freely, and let your passion light the way forward."
+    },
+    "reversed": {
+      "meaning": "Lack of direction, setbacks, hasty decisions.",
+      "description": "The Page of Wands reversed suggests enthusiasm without follow-through or an adventure that fizzles before it begins. Channel your excitement into concrete action."
+    }
+  },
+  {
+    "id": "wands-12",
+    "name": "Knight of Wands",
+    "suit": "Wands",
+    "number": 12,
+    "image": "/images/tarot/Tarot Minor - WANDS - Knight of Wands.png",
+    "keywords": ["adventure", "action", "energy", "impulsiveness"],
+    "upright": {
+      "meaning": "Adventure, action, bold energy.",
+      "description": "The Knight of Wands charges forth with fiery passion and fearless determination. This is a time for bold action, daring adventures, and pursuing your passions with full intensity. Let nothing dim your flame."
+    },
+    "reversed": {
+      "meaning": "Recklessness, scattered energy, delays in travel.",
+      "description": "The Knight of Wands reversed warns of passion without direction — reckless action, scattered efforts, or a journey that has hit unexpected obstacles. Focus your fire before it burns out of control."
+    }
+  },
+  {
+    "id": "wands-13",
+    "name": "Queen of Wands",
+    "suit": "Wands",
+    "number": 13,
+    "image": "/images/tarot/Tarot Minor - WANDS - Queen of Wands.png",
+    "keywords": ["confidence", "passion", "determination", "vibrancy"],
+    "upright": {
+      "meaning": "Confidence, passion, determination.",
+      "description": "The Queen of Wands radiates warmth, confidence, and magnetic energy. She knows her power and wields it with grace and fierce determination. Step into your own radiance and lead with passion and unshakable self-belief."
+    },
+    "reversed": {
+      "meaning": "Selfishness, jealousy, demanding nature.",
+      "description": "The Queen of Wands reversed warns of confidence turned to arrogance or passion turned to possessiveness. The fire that warms can also scorch. Check your ego and lead with generosity."
+    }
+  },
+  {
+    "id": "wands-14",
+    "name": "King of Wands",
+    "suit": "Wands",
+    "number": 14,
+    "image": "/images/tarot/Tarot Minor - WANDS - King of Wands.png",
+    "keywords": ["leadership", "vision", "boldness", "charisma"],
+    "upright": {
+      "meaning": "Leadership, vision, boldness.",
+      "description": "The King of Wands commands with visionary leadership and bold charisma. He inspires others not through authority alone but through the sheer force of his conviction and creative fire. Lead with vision and courage."
+    },
+    "reversed": {
+      "meaning": "Impulsiveness, tyranny, vain ambition.",
+      "description": "The King of Wands reversed warns of leadership corrupted by ego. Boldness becomes recklessness, vision becomes vanity, and charisma becomes manipulation. Lead with integrity or risk losing all that you have built."
+    }
+  }
+]
