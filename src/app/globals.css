@@ -1,24 +1,34 @@
 /* ════════════════════════════════════════
    TAROT HOROSCOPE FORTUNE — Global Styles
-   Theme: Deep royal blue + gold engraving
+   Theme: Champagne gold background + dark text
    ════════════════════════════════════════ */
 
 @import "tailwindcss";
 
 /* ──────────────── CSS Variables ──────────────── */
 :root {
-  --color-bg-deep: #0a0a1a;
-  --color-bg-royal: #0d1033;
-  --color-bg-card: rgba(13, 16, 51, 0.85);
-  --color-gold: #c9a84c;
-  --color-gold-light: #e8d48b;
-  --color-gold-bright: #ffd700;
-  --color-gold-dim: #8b7532;
-  --color-text: #e8dcc8;
-  --color-text-dim: #9a917e;
-  --color-border-gold: rgba(201, 168, 76, 0.3);
-  --color-border-gold-hover: rgba(201, 168, 76, 0.6);
-  --color-glow: rgba(255, 215, 0, 0.15);
+  /* Background tones */
+  --color-bg-deep: #1a1510;
+  --color-bg-royal: #2a2318;
+  --color-bg-card: rgba(30, 25, 18, 0.88);
+
+  /* Gold accents */
+  --color-gold: #6b5010;
+  --color-gold-light: #8b6914;
+  --color-gold-bright: #b8860b;
+  --color-gold-dim: #4a3808;
+
+  /* Text — very dark for light background */
+  --color-text: #1a1408;
+  --color-text-dim: #3d3322;
+  --color-text-light: #e8dcc8;
+
+  /* Borders */
+  --color-border-gold: rgba(107, 80, 16, 0.5);
+  --color-border-gold-hover: rgba(107, 80, 16, 0.8);
+  --color-glow: rgba(107, 80, 16, 0.2);
+
+  /* Fonts */
   --font-mystical: "Cinzel Decorative", "Cinzel", Georgia, serif;
   --font-body: "Cormorant Garamond", "Garamond", Georgia, serif;
 }
@@ -38,15 +48,22 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg-deep);
+  background-color: #c4b59a;
   color: var(--color-text);
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ──────────────── Animated Starfield ──────────────── */
-.starfield {
+/* ════════════════════════════════════════
+   LAYERED ANIMATED BACKGROUND
+   5 layers: base + 4 animated overlays
+   All drift in one direction (gentle breeze)
+   Different speeds per layer create parallax depth
+   ════════════════════════════════════════ */
+
+/* ──────────────── Background Container ──────────────── */
+.bg-layers {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,124 +74,115 @@ body {
   overflow: hidden;
 }
 
-.starfield::before,
-.starfield::after {
-  content: "";
+/* ──────────────── Shared Layer Styles ──────────────── */
+/* Extra padding so layers can drift without showing edges */
+.bg-layer {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-      1px 1px at 20% 30%,
-      rgba(255, 215, 0, 0.8) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 40% 70%,
-      rgba(232, 212, 139, 0.6) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1.5px 1.5px at 60% 20%,
-      rgba(255, 255, 255, 0.7) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 80% 50%,
-      rgba(201, 168, 76, 0.5) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 10% 80%,
-      rgba(255, 215, 0, 0.6) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1.5px 1.5px at 70% 90%,
-      rgba(255, 255, 255, 0.5) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 50% 50%,
-      rgba(232, 212, 139, 0.4) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 30% 10%,
-      rgba(255, 215, 0, 0.7) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      2px 2px at 90% 40%,
-      rgba(255, 255, 255, 0.6) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 15% 55%,
-      rgba(201, 168, 76, 0.5) 0%,
-      transparent 100%
-    );
-  animation: starDrift 90s linear infinite;
+  top: -120px;
+  left: -120px;
+  width: calc(100% + 240px);
+  height: calc(100% + 240px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.starfield::after {
-  background: radial-gradient(
-      1.5px 1.5px at 25% 45%,
-      rgba(255, 215, 0, 0.5) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 55% 15%,
-      rgba(232, 212, 139, 0.7) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 85% 75%,
-      rgba(255, 255, 255, 0.4) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      2px 2px at 35% 85%,
-      rgba(255, 215, 0, 0.6) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 65% 35%,
-      rgba(201, 168, 76, 0.6) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 5% 25%,
-      rgba(255, 255, 255, 0.5) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1.5px 1.5px at 45% 65%,
-      rgba(232, 212, 139, 0.5) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      1px 1px at 75% 5%,
-      rgba(255, 215, 0, 0.4) 0%,
-      transparent 100%
-    );
-  animation: starDrift 120s linear infinite reverse;
+/* ──────────────── Layer 1: Static Base Image ──────────────── */
+.bg-base {
+  background-image: url("/images/backgrounds/Background_Still_4k.jpg");
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes starDrift {
-  from {
-    transform: translateY(0) translateX(0);
+/* ──────────────── Layer 2: Mist A — Slow Breeze (foreground) ──────────────── */
+.bg-mist-a {
+  background-image: url("/images/backgrounds/overlay_mist_a_4k.png");
+  z-index: 1;
+  opacity: 0.8;
+  animation: breezeNear 60s ease-in-out infinite alternate;
+}
+
+@keyframes breezeNear {
+  0% {
+    transform: translateX(-100px) translateY(25px);
   }
-  to {
-    transform: translateY(-20px) translateX(10px);
-  }
-}
-
-/* ──────────────── Subtle Shimmer on Gold ──────────────── */
-@keyframes goldShimmer {
-  0%,
   100% {
+    transform: translateX(100px) translateY(-25px);
+  }
+}
+
+/* ──────────────── Layer 3: Mist B — Slow Breeze (background) ──────────────── */
+.bg-mist-b {
+  background-image: url("/images/backgrounds/overlay_mist_b_4k.png");
+  z-index: 2;
+  opacity: 0.7;
+  animation: breezeFar 90s ease-in-out infinite alternate;
+}
+
+@keyframes breezeFar {
+  0% {
+    transform: translateX(-60px) translateY(15px);
+  }
+  100% {
+    transform: translateX(60px) translateY(-15px);
+  }
+}
+
+/* ──────────────── Layer 4: Dust ──────────────── */
+/* REMOVED — replaced by canvas-based GoldParticles component
+   for true individual particle drift (see GoldParticles.js) */
+
+/* ──────────────── Layer 5-7: Ghost Layers — Tarot & Zodiac Figures ──────────────── */
+/* 3 layers breathing at different speeds so figures fade in/out independently */
+
+/* Ghost layers A/B/C — rendering handled by GoldDust.js JS canvas.
+   CSS classes kept as empty hooks in case needed later. */
+.bg-ghost-a { z-index: 4; }
+.bg-ghost-b { z-index: 5; }
+.bg-ghost-c { z-index: 6; }
+
+/* Each layer drifts slightly differently */
+@keyframes breezeGhostA {
+  0% { transform: translateX(-50px) translateY(12px); }
+  100% { transform: translateX(50px) translateY(-12px); }
+}
+
+@keyframes breezeGhostB {
+  0% { transform: translateX(40px) translateY(-10px); }
+  100% { transform: translateX(-40px) translateY(10px); }
+}
+
+@keyframes breezeGhostC {
+  0% { transform: translateX(-30px) translateY(-8px); }
+  100% { transform: translateX(30px) translateY(8px); }
+}
+
+/* Each layer breathes at its own speed — staggered so they alternate */
+@keyframes ghostBreatheA {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes ghostBreatheB {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes ghostBreatheC {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.7; }
+}
+
+/* ════════════════════════════════════════
+   END LAYERED ANIMATED BACKGROUND
+   ════════════════════════════════════════ */
+
+/* ──────────────── Animations ──────────────── */
+@keyframes goldShimmer {
+  0%, 100% {
     opacity: 1;
   }
   50% {
@@ -183,8 +191,7 @@ body {
 }
 
 @keyframes breathe {
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
     opacity: 1;
   }
@@ -258,6 +265,17 @@ body {
   border: 1px solid var(--color-border-gold);
   border-radius: 12px;
   backdrop-filter: blur(10px);
+  color: var(--color-text-light);
+}
+
+/* ──────────────── Dark Content Backdrop ──────────────── */
+.content-backdrop {
+  background: rgba(26, 21, 16, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 40px 32px;
+  border: 1px solid rgba(107, 80, 16, 0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* ──────────────── Zodiac Tile Grid ──────────────── */
@@ -267,31 +285,32 @@ body {
   align-items: center;
   justify-content: center;
   padding: 12px 8px;
-  border: 1px solid var(--color-border-gold);
+  border: 2px solid rgba(107, 80, 16, 0.6);
   border-radius: 10px;
-  background: rgba(13, 16, 51, 0.6);
+  background: rgba(20, 16, 10, 0.9);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
   min-width: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .zodiac-tile:hover {
-  border-color: var(--color-gold);
-  background: rgba(201, 168, 76, 0.08);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1), inset 0 0 20px rgba(255, 215, 0, 0.05);
+  border-color: #b8860b;
+  background: rgba(20, 16, 10, 0.95);
+  box-shadow: 0 0 20px rgba(184, 134, 11, 0.3), 0 4px 15px rgba(0, 0, 0, 0.4);
   transform: translateY(-2px);
 }
 
 .zodiac-tile.selected {
-  border-color: var(--color-gold-bright);
-  background: rgba(201, 168, 76, 0.15);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.2), inset 0 0 25px rgba(255, 215, 0, 0.08);
+  border-color: #c9a84c;
+  background: rgba(20, 16, 10, 0.95);
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.4), 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .zodiac-tile .glyph {
   font-size: 2rem;
-  color: var(--color-gold);
+  color: #c9a84c;
   line-height: 1;
   margin-bottom: 6px;
   animation: goldShimmer 4s ease-in-out infinite;
@@ -300,7 +319,7 @@ body {
 .zodiac-tile .sign-name {
   font-family: var(--font-mystical);
   font-size: 0.75rem;
-  color: var(--color-gold-light);
+  color: #e8dcc8;
   letter-spacing: 0.08em;
   margin-bottom: 2px;
 }
@@ -308,66 +327,79 @@ body {
 .zodiac-tile .date-range {
   font-family: var(--font-body);
   font-size: 0.65rem;
-  color: var(--color-text-dim);
+  color: #9a917e;
 }
 
 /* ──────────────── Form Controls ──────────────── */
 .mystical-input {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(13, 16, 51, 0.8);
-  border: 1px solid var(--color-border-gold);
+  background: rgba(20, 16, 10, 0.9);
+  border: 2px solid rgba(107, 80, 16, 0.6);
   border-radius: 8px;
-  color: var(--color-text);
+  color: var(--color-text-light);
   font-family: var(--font-body);
   font-size: 1rem;
   outline: none;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .mystical-input:focus {
-  border-color: var(--color-gold);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+  border-color: #b8860b;
+  box-shadow: 0 0 15px rgba(184, 134, 11, 0.3);
 }
 
 .mystical-input::placeholder {
-  color: var(--color-text-dim);
+  color: #9a917e;
 }
 
-.mystical-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 40px;
-  background: linear-gradient(135deg, var(--color-gold-dim), var(--color-gold), var(--color-gold-dim));
-  border: 1px solid var(--color-gold);
-  border-radius: 8px;
-  color: var(--color-bg-deep);
-  font-family: var(--font-mystical);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  text-transform: uppercase;
+/* ──────────────── Get My Reading Button ──────────────── */
+button.mystical-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px 48px !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  border: 2px solid #d4b254 !important;
+  border-radius: 8px !important;
+  color: #d4b254 !important;
+  font-family: var(--font-mystical) !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7) !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
-.mystical-button:hover {
-  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-bright), var(--color-gold));
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), 0 0 60px rgba(255, 215, 0, 0.1);
-  transform: translateY(-1px);
+button.mystical-button:hover {
+  background: #111008 !important;
+  background-color: #111008 !important;
+  border-color: #e8d48b !important;
+  color: #e8d48b !important;
+  box-shadow: 0 0 30px rgba(212, 178, 84, 0.4), 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+  transform: translateY(-1px) !important;
 }
 
-.mystical-button:active {
-  transform: translateY(0);
+button.mystical-button:active {
+  transform: translateY(0) !important;
 }
 
-.mystical-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+button.mystical-button:disabled {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  border-color: #d4b254 !important;
+  color: #d4b254 !important;
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
 }
 
 /* ──────────────── Decorative Divider ──────────────── */
@@ -378,7 +410,7 @@ body {
     90deg,
     transparent,
     var(--color-border-gold),
-    var(--color-gold),
+    var(--color-gold-bright),
     var(--color-border-gold),
     transparent
   );
@@ -392,7 +424,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    var(--color-gold),
+    var(--color-gold-bright),
     transparent
   );
   margin: 16px auto;
@@ -409,8 +441,8 @@ body {
 }
 
 .tarot-card:hover {
-  border-color: var(--color-gold);
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15), 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 8px 30px rgba(184, 134, 11, 0.2), 0 4px 20px rgba(0, 0, 0, 0.5);
   transform: translateY(-4px);
 }
 
@@ -431,16 +463,18 @@ body {
 .scroll-container {
   background: linear-gradient(
     180deg,
-    rgba(139, 117, 50, 0.08) 0%,
-    rgba(13, 16, 51, 0.9) 5%,
-    rgba(13, 16, 51, 0.95) 95%,
-    rgba(139, 117, 50, 0.08) 100%
+    rgba(107, 80, 16, 0.1) 0%,
+    rgba(20, 16, 10, 0.94) 5%,
+    rgba(20, 16, 10, 0.96) 95%,
+    rgba(107, 80, 16, 0.1) 100%
   );
-  border: 1px solid var(--color-border-gold);
+  border: 2px solid rgba(107, 80, 16, 0.5);
   border-radius: 12px;
   padding: 40px 32px;
   max-height: 70vh;
   overflow-y: auto;
+  color: var(--color-text-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -473,7 +507,7 @@ body {
 }
 
 .disclaimer-footer a:hover {
-  color: var(--color-gold-light);
+  color: var(--color-gold-bright);
   text-decoration: underline;
 }
 
@@ -492,6 +526,10 @@ body {
   }
 
   .scroll-container {
+    padding: 24px 16px;
+  }
+
+  .content-backdrop {
     padding: 24px 16px;
   }
 }

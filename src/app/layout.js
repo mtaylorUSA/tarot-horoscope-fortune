@@ -1,4 +1,5 @@
 import "./globals.css";
+import GoldDust from "@/components/GoldDust";
 
 export const metadata = {
   title: "Tarot Horoscope Fortune",
@@ -23,11 +24,25 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {/* Animated starfield background — shared across all pages */}
-        <div className="starfield" aria-hidden="true" />
+        {/* ═══ Layered Animated Background ═══ */}
+        <div className="bg-layers" aria-hidden="true">
+          {/* Layer 1: Static base — champagne gold sparkle */}
+          <div className="bg-layer bg-base" />
 
-        {/* Page content renders above the starfield */}
-        <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
+          {/* Layer 2: Mist A — slow drift, foreground */}
+          <div className="bg-layer bg-mist-a" />
+
+          {/* Layer 3: Mist B — slower drift, background (parallax) */}
+          <div className="bg-layer bg-mist-b" />
+
+          {/* Ghost figures rendered by GoldDust.js JS canvas — no CSS divs needed */}
+        </div>
+
+        {/* ═══ JS Particle System — individual drifting gold sparkles ═══ */}
+        <GoldDust particleCount={120} />
+
+        {/* Page content renders ABOVE all background layers (z-index: 10) */}
+        <div style={{ position: "relative", zIndex: 10 }}>{children}</div>
       </body>
     </html>
   );

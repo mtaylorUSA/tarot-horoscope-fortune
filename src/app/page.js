@@ -91,6 +91,16 @@ export default function WelcomePage() {
 
   const selectedSignData = zodiacSigns.find((s) => s.id === selectedSign);
 
+  /* Shared style for section headings (Choose Your Zodiac Sign / Or Enter DOB) */
+  const sectionHeadingStyle = {
+    textAlign: "center",
+    fontSize: "1rem",
+    fontWeight: 700,
+    marginBottom: "16px",
+    letterSpacing: "0.1em",
+    color: "#1a1408",
+  };
+
   return (
     <main
       style={{
@@ -106,22 +116,24 @@ export default function WelcomePage() {
       {/* ──────────────── Title ──────────────── */}
       <header style={{ textAlign: "center", marginBottom: "32px" }}>
         <h1
-          className="font-mystical text-gold-bright"
+          className="font-mystical"
           style={{
             fontSize: "clamp(1.6rem, 5vw, 3rem)",
             fontWeight: 700,
             lineHeight: 1.2,
-            marginBottom: "8px",
-            textShadow: "0 0 40px rgba(255, 215, 0, 0.3)",
+            marginBottom: "12px",
+            color: "#2a1f0e",
+            textShadow: "0 1px 3px rgba(0, 0, 0, 0.15)",
           }}
         >
           Tarot Horoscope Fortune
         </h1>
         <p
-          className="font-body text-gold"
+          className="font-body"
           style={{
-            fontSize: "clamp(0.95rem, 2vw, 1.2rem)",
-            opacity: 0.8,
+            fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
+            color: "#2a1f0e",
+            fontWeight: 500,
           }}
         >
           Discover what the stars and cards reveal for you today
@@ -133,27 +145,19 @@ export default function WelcomePage() {
       <section
         style={{
           width: "100%",
-          maxWidth: "720px",
+          maxWidth: "900px",
           marginBottom: "28px",
         }}
       >
-        <p
-          className="font-mystical text-gold-light"
-          style={{
-            textAlign: "center",
-            fontSize: "0.9rem",
-            marginBottom: "16px",
-            letterSpacing: "0.1em",
-          }}
-        >
+        <p className="font-mystical" style={sectionHeadingStyle}>
           Choose Your Zodiac Sign
         </p>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
-            gap: "10px",
+            gridTemplateColumns: "repeat(6, 1fr)",
+            gap: "12px",
           }}
         >
           {zodiacSigns.map((sign) => (
@@ -195,21 +199,20 @@ export default function WelcomePage() {
           <span
             style={{
               fontSize: "1.8rem",
-              color: "var(--color-gold-bright)",
+              color: "#6b5010",
               marginRight: "8px",
             }}
           >
             {selectedSignData.symbol}
           </span>
           <span
-            className="font-mystical text-gold-light"
-            style={{ fontSize: "1.1rem" }}
+            className="font-mystical"
+            style={{ fontSize: "1.1rem", color: "#2a1f0e" }}
           >
             {selectedSignData.name}
           </span>
           <span
-            className="text-dim"
-            style={{ fontSize: "0.85rem", marginLeft: "8px" }}
+            style={{ fontSize: "0.85rem", marginLeft: "8px", color: "#5a4d3a" }}
           >
             {selectedSignData.element} · {selectedSignData.rulingPlanet}
           </span>
@@ -220,22 +223,16 @@ export default function WelcomePage() {
       <section
         style={{
           width: "100%",
-          maxWidth: "400px",
+          maxWidth: "480px",
           marginBottom: "28px",
         }}
       >
         <label
-          className="font-mystical text-gold"
+          className="font-mystical"
           htmlFor="dob-input"
-          style={{
-            display: "block",
-            fontSize: "0.85rem",
-            marginBottom: "8px",
-            textAlign: "center",
-            letterSpacing: "0.08em",
-          }}
+          style={sectionHeadingStyle}
         >
-          Date of Birth
+          Or Enter Your Date of Birth
         </label>
         <input
           id="dob-input"
@@ -245,16 +242,6 @@ export default function WelcomePage() {
           onChange={handleDobChange}
           style={{ textAlign: "center" }}
         />
-        <p
-          className="text-dim"
-          style={{
-            fontSize: "0.75rem",
-            textAlign: "center",
-            marginTop: "6px",
-          }}
-        >
-          Enter your DOB to auto-detect your sign, or select a tile above
-        </p>
       </section>
 
       {/* ──────────────── Get My Reading Button ──────────────── */}
