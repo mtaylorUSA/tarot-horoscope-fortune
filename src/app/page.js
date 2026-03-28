@@ -4,40 +4,24 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import zodiacSigns from "@/data/zodiac-signs.json";
 
-/* ════════════════════════════════════════
-   WELCOME SCREEN — app/page.js
+/* ═══════════════════════════════════════════
+   WELCOME SCREEN – app/page.js
    Clickable zodiac tiles, DOB input,
    "Get My Reading" button
-   ════════════════════════════════════════ */
+   ═══════════════════════════════════════════ */
 
-// ──────────────── Helper: Determine zodiac sign from DOB ────────────────
+// ──────────────────────────────────────────────────────────
+// Helper: Determine zodiac sign from DOB
+// ──────────────────────────────────────────────────────────
 function getZodiacFromDate(month, day) {
-  // Returns the zodiac sign id that matches the given month/day
-  // Handles the wrap-around for Capricorn (Dec 22 – Jan 19)
   for (const sign of zodiacSigns) {
     const { startMonth, startDay, endMonth, endDay } = sign.dateRange;
-
     if (startMonth === endMonth) {
-      // Same month range (unlikely but safe)
-      if (month === startMonth && day >= startDay && day <= endDay) {
-        return sign.id;
-      }
+      if (month === startMonth && day >= startDay && day <= endDay) return sign.id;
     } else if (startMonth > endMonth) {
-      // Wraps around year boundary (Capricorn: Dec 22 – Jan 19)
-      if (
-        (month === startMonth && day >= startDay) ||
-        (month === endMonth && day <= endDay)
-      ) {
-        return sign.id;
-      }
+      if ((month === startMonth && day >= startDay) || (month === endMonth && day <= endDay)) return sign.id;
     } else {
-      // Normal range within the same year
-      if (
-        (month === startMonth && day >= startDay) ||
-        (month === endMonth && day <= endDay)
-      ) {
-        return sign.id;
-      }
+      if ((month === startMonth && day >= startDay) || (month === endMonth && day <= endDay)) return sign.id;
     }
   }
   return null;
@@ -49,57 +33,30 @@ export default function WelcomePage() {
   const [dob, setDob] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 
-  // Fade-in on mount
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  useEffect(() => { setIsVisible(true); }, []);
 
-  // ──────────────── When DOB changes, auto-detect zodiac sign ────────────────
   const handleDobChange = (e) => {
     const value = e.target.value;
     setDob(value);
-
     if (value) {
       const dateObj = new Date(value + "T00:00:00");
-      const month = dateObj.getMonth() + 1; // 1-based
+      const month = dateObj.getMonth() + 1;
       const day = dateObj.getDate();
       const detected = getZodiacFromDate(month, day);
-      if (detected) {
-        setSelectedSign(detected);
-      }
+      if (detected) setSelectedSign(detected);
     }
   };
 
-  // ──────────────── When tile clicked, select that sign ────────────────
-  const handleTileClick = (signId) => {
-    setSelectedSign(signId);
-  };
+  const handleTileClick = (signId) => setSelectedSign(signId);
 
-  // ──────────────── Submit → navigate to Results ────────────────
   const handleSubmit = () => {
     if (!selectedSign) return;
-
-    // Build query params for the results page
-    const params = new URLSearchParams({
-      sign: selectedSign,
-    });
-    if (dob) {
-      params.set("dob", dob);
-    }
+    const params = new URLSearchParams({ sign: selectedSign });
+    if (dob) params.set("dob", dob);
     router.push(`/results?${params.toString()}`);
   };
 
   const selectedSignData = zodiacSigns.find((s) => s.id === selectedSign);
-
-  /* Shared style for section headings (Choose Your Zodiac Sign / Or Enter DOB) */
-  const sectionHeadingStyle = {
-    textAlign: "center",
-    fontSize: "1rem",
-    fontWeight: 700,
-    marginBottom: "16px",
-    letterSpacing: "0.1em",
-    color: "#1a1408",
-  };
 
   return (
     <main
@@ -113,7 +70,63 @@ export default function WelcomePage() {
         transition: "opacity 1s ease-in",
       }}
     >
-      {/* ──────────────── Title ──────────────── */}
+      {/* ── Keyframe animations + tooltip styles ── */}
+      <style>{`
+        @keyframes pulseGlow {
+          0%   { box-shadow: 0 0 20px 6px rgba(201,168,76,0.6), inset 0 0 12px rgba(201,168,76,0.15); }
+          50%  { box-shadow: 0 0 50px 18px rgba(201,168,76,1.0), inset 0 0 20px rgba(201,168,76,0.3); }
+          100% { box-shadow: 0 0 20px 6px rgba(201,168,76,0.6), inset 0 0 12px rgba(201,168,76,0.15); }
+        }
+        .reading-btn {
+          animation: pulseGlow 1.8s ease-in-out infinite;
+        }
+        .reading-btn:disabled {
+          animation: none;
+          box-shadow: 0 0 10px 2px rgba(201,168,76,0.25);
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        .btn-tooltip-wrapper {
+          position: relative;
+          display: inline-block;
+          margin-bottom: 40px;
+        }
+        .btn-tooltip-wrapper .tooltip {
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          bottom: calc(100% + 12px);
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #13103a;
+          color: #C9A84C;
+          border: 1px solid #C9A84C;
+          border-radius: 8px;
+          padding: 8px 16px;
+          font-size: 1rem;
+          font-weight: 600;
+          white-space: nowrap;
+          pointer-events: none;
+          transition: opacity 0.2s ease;
+          letter-spacing: 0.05em;
+        }
+        .btn-tooltip-wrapper .tooltip::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          border-width: 6px;
+          border-style: solid;
+          border-color: #C9A84C transparent transparent transparent;
+        }
+        .btn-tooltip-wrapper:hover .tooltip.show {
+          visibility: visible;
+          opacity: 1;
+        }
+      `}</style>
+
+      {/* ──────────────────── Title ──────────────────── */}
       <header style={{ textAlign: "center", marginBottom: "32px" }}>
         <h1
           className="font-mystical"
@@ -123,7 +136,7 @@ export default function WelcomePage() {
             lineHeight: 1.2,
             marginBottom: "12px",
             color: "#2a1f0e",
-            textShadow: "0 1px 3px rgba(0, 0, 0, 0.15)",
+            textShadow: "0 1px 3px rgba(0,0,0,0.15)",
           }}
         >
           Tarot Horoscope Fortune
@@ -131,9 +144,10 @@ export default function WelcomePage() {
         <p
           className="font-body"
           style={{
-            fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
+            fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
             color: "#2a1f0e",
-            fontWeight: 500,
+            fontWeight: 600,
+            lineHeight: 1.4,
           }}
         >
           Discover what the stars and cards reveal for you today
@@ -141,15 +155,19 @@ export default function WelcomePage() {
         <div className="gold-divider-short" />
       </header>
 
-      {/* ──────────────── Zodiac Tile Grid ──────────────── */}
-      <section
-        style={{
-          width: "100%",
-          maxWidth: "900px",
-          marginBottom: "28px",
-        }}
-      >
-        <p className="font-mystical" style={sectionHeadingStyle}>
+      {/* ──────────────────── Zodiac Tile Grid ──────────────────── */}
+      <section style={{ width: "100%", maxWidth: "1200px", marginBottom: "28px" }}>
+        <p
+          className="font-mystical"
+          style={{
+            textAlign: "center",
+            fontSize: "1.8rem",
+            fontWeight: 700,
+            marginBottom: "16px",
+            letterSpacing: "0.1em",
+            color: "#1a1408",
+          }}
+        >
           Choose Your Zodiac Sign
         </p>
 
@@ -157,15 +175,13 @@ export default function WelcomePage() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(6, 1fr)",
-            gap: "12px",
+            gap: "14px",
           }}
         >
           {zodiacSigns.map((sign) => (
             <div
               key={sign.id}
-              className={`zodiac-tile ${
-                selectedSign === sign.id ? "selected" : ""
-              }`}
+              className={`zodiac-tile ${selectedSign === sign.id ? "selected" : ""}`}
               onClick={() => handleTileClick(sign.id)}
               role="button"
               tabIndex={0}
@@ -176,61 +192,107 @@ export default function WelcomePage() {
                   handleTileClick(sign.id);
                 }
               }}
+              style={{
+                backgroundColor: "#13103a",
+                borderRadius: "12px",
+                aspectRatio: "3 / 4",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "10px 6px",
+                cursor: "pointer",
+                overflow: "hidden",
+              }}
             >
-              <span className="glyph">{sign.symbol}</span>
-              <span className="sign-name">{sign.name}</span>
-              <span className="date-range">
-                {sign.dateRange.start} – {sign.dateRange.end}
+              {/* ── Unicode symbol ── */}
+              <span
+                className="glyph"
+                style={{
+                  fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+                  lineHeight: 1,
+                  color: "#C9A84C",
+                  marginBottom: "8px",
+                  display: "block",
+                  textShadow: "0 0 8px rgba(201,168,76,0.4)",
+                }}
+              >
+                {sign.symbol + "\uFE0E"}
+              </span>
+
+              {/* ── Sign name ── */}
+              <span
+                className="sign-name"
+                style={{
+                  fontSize: "clamp(0.8rem, 1.3vw, 1.05rem)",
+                  lineHeight: 1.2,
+                  fontWeight: 600,
+                  textAlign: "center",
+                  whiteSpace: "nowrap",
+                  marginBottom: "4px",
+                }}
+              >
+                {sign.name}
+              </span>
+
+              {/* ── Date range — split into two lines ── */}
+              {/* ── FIX 2026-03-28: White, bold, larger — all !important to override globals.css ── */}
+              <span
+                className="date-range"
+                style={{
+                  fontSize: "clamp(1.1rem, 2vw, 1.5rem) !important",
+                  fontWeight: "700 !important",
+                  color: "#ffffff !important",
+                  lineHeight: 1.4,
+                  textAlign: "center",
+                }}
+              >
+                {sign.dateRange.start} –<br />{sign.dateRange.end}
               </span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ──────────────── Selected Sign Feedback ──────────────── */}
+      {/* ──────────────────── Selected Sign Feedback ──────────────────── */}
       {selectedSignData && (
         <div
           style={{
             textAlign: "center",
             marginBottom: "20px",
             animation: "fadeIn 0.5s ease-out",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "10px",
           }}
         >
-          <span
-            style={{
-              fontSize: "1.8rem",
-              color: "#6b5010",
-              marginRight: "8px",
-            }}
-          >
-            {selectedSignData.symbol}
+          <span style={{ fontSize: "2.2rem", lineHeight: 1, color: "#C9A84C", textShadow: "0 0 10px rgba(201,168,76,0.5)" }}>
+            {selectedSignData.symbol + "\uFE0E"}
           </span>
-          <span
-            className="font-mystical"
-            style={{ fontSize: "1.1rem", color: "#2a1f0e" }}
-          >
+          <span className="font-mystical" style={{ fontSize: "1.2rem", color: "#2a1f0e" }}>
             {selectedSignData.name}
           </span>
-          <span
-            style={{ fontSize: "0.85rem", marginLeft: "8px", color: "#5a4d3a" }}
-          >
+          <span style={{ fontSize: "0.95rem", color: "#5a4d3a" }}>
             {selectedSignData.element} · {selectedSignData.rulingPlanet}
           </span>
         </div>
       )}
 
-      {/* ──────────────── DOB Input ──────────────── */}
-      <section
-        style={{
-          width: "100%",
-          maxWidth: "480px",
-          marginBottom: "28px",
-        }}
-      >
+      {/* ──────────────────── DOB Input ──────────────────── */}
+      <section style={{ width: "100%", maxWidth: "480px", marginBottom: "28px" }}>
         <label
           className="font-mystical"
           htmlFor="dob-input"
-          style={sectionHeadingStyle}
+          style={{
+            display: "block",
+            textAlign: "center",
+            fontSize: "1.8rem",
+            fontWeight: 700,
+            marginBottom: "16px",
+            letterSpacing: "0.1em",
+            color: "#1a1408",
+          }}
         >
           Or Enter Your Date of Birth
         </label>
@@ -240,38 +302,58 @@ export default function WelcomePage() {
           className="mystical-input"
           value={dob}
           onChange={handleDobChange}
-          style={{ textAlign: "center" }}
+          style={{
+            textAlign: "center",
+            fontSize: "1.5rem",
+            padding: "16px",
+            width: "100%",
+          }}
         />
       </section>
 
-      {/* ──────────────── Get My Reading Button ──────────────── */}
-      <button
-        className="mystical-button"
-        onClick={handleSubmit}
-        disabled={!selectedSign}
-        style={{ marginBottom: "40px" }}
-      >
-        ✦ Get My Reading ✦
-      </button>
+      {/* ──────────────────── Get My Reading Button ──────────────────── */}
+      <div className="btn-tooltip-wrapper">
+        <span className={`tooltip ${!selectedSign ? "show" : ""}`}>
+          ✦ Please select your star sign first ✦
+        </span>
+        <button
+          className="reading-btn"
+          onClick={handleSubmit}
+          disabled={!selectedSign}
+          style={{
+            fontSize: "1.8rem",                             /* ── Larger text ── */
+            padding: "24px 72px",                           /* ── Taller, wider ── */
+            fontWeight: 800,                                /* ── Bolder ── */
+            fontFamily: "inherit",
+            letterSpacing: "0.12em",
+            backgroundColor: "#C9A84C",
+            color: "#13103a",
+            border: "4px solid #8a6e2a",                   /* ── Thicker, darker border ── */
+            borderRadius: "10px",
+            cursor: selectedSign ? "pointer" : "not-allowed",
+            transition: "all 0.2s ease",
+            textTransform: "uppercase",                     /* ── All caps for impact ── */
+          }}
+        >
+          ✦ Draw My Tarot Cards and Get My Reading ✦
+        </button>
+      </div>
 
       <div className="gold-divider" style={{ maxWidth: "600px" }} />
 
-      {/* ──────────────── Footer Disclaimers ──────────────── */}
+      {/* ──────────────────── Footer Disclaimers ──────────────────── */}
       <footer className="disclaimer-footer" style={{ maxWidth: "600px" }}>
         <p style={{ marginBottom: "8px" }}>
           <a href="/agreement">User Agreement</a>
         </p>
         <p style={{ marginBottom: "8px" }}>
-          Readings are generated by AI for entertainment purposes only. Results
-          may contain errors or inaccuracies.
+          Readings are generated by AI for entertainment purposes only. Results may contain errors or inaccuracies.
         </p>
         <p style={{ marginBottom: "8px" }}>
-          This site is not a provider of medical, mental health, or financial
-          advice or treatment.
+          This site is not a provider of medical, mental health, or financial advice or treatment.
         </p>
         <p>
-          For emergencies, call <strong>911</strong> or go to your nearest
-          emergency room.
+          For emergencies, call <strong>911</strong> or go to your nearest emergency room.
         </p>
       </footer>
     </main>
