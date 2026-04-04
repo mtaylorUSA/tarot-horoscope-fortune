@@ -93,14 +93,14 @@ const RESULTS_STYLES = `
     text-shadow: 0 0 6px rgba(232, 200, 74, 0.5) !important;
   }
 
-  /* ── AI horoscope text — tighter line spacing, larger font ── */
+  /* ── AI horoscope text ── */
   .results-screen .horoscope-text {
     font-size: 1.45rem !important;
     line-height: 1.45 !important;
     color: #3a2a10 !important;
   }
 
-  /* ── Fortune text — bigger, darker ── */
+  /* ── Fortune text ── */
   .results-screen .fortune-text {
     font-size: 1.6rem !important;
     line-height: 1.6 !important;
@@ -133,7 +133,7 @@ const RESULTS_STYLES = `
   /* ══════════════════════════════════════════════════
      RESPONSIVE LAYOUT
      Desktop  (>720px):  2-column row, side by side
-     Mobile  (≤720px):  single column, stacked
+     Mobile  (<=720px):  single column, stacked
      ══════════════════════════════════════════════════ */
 
   /* Desktop default — row layout */
@@ -178,7 +178,7 @@ const RESULTS_STYLES = `
     }
   }
 
-  /* Desktop — card size (explicit here so mobile override above wins) */
+  /* Desktop — card size */
   @media (min-width: 721px) {
     .results-screen .tarot-card {
       width: 195px !important;
@@ -186,6 +186,75 @@ const RESULTS_STYLES = `
       max-width: 195px !important;
       flex-shrink: 0 !important;
     }
+  }
+
+  /* ══════════════════════════════════════════════════
+     3D CARD FLIP ANIMATION
+     ══════════════════════════════════════════════════ */
+
+  /* Outer container establishes the 3D perspective */
+  .card-flip-container {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    perspective: 900px;
+  }
+
+  /* Inner wrapper holds both faces and does the rotation */
+  .card-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.85s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  }
+
+  /* Trigger the flip by rotating 180deg on Y axis */
+  .card-flip-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  /* Both faces share the same space — hidden when facing away */
+  .card-face-back,
+  .card-face-front {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    background: var(--color-bg-deep);
+  }
+
+  /* Back of card faces the user initially (rotateY 0deg) */
+  .card-face-back {
+    transform: rotateY(0deg);
+  }
+
+  /* Front of card is hidden initially (rotateY 180deg) */
+  .card-face-front {
+    transform: rotateY(180deg);
+  }
+
+  /* Card text block (name + keywords) fades in after flip */
+  .card-text-block {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+
+  .card-text-block.is-visible {
+    opacity: 1;
+  }
+
+  /* Subtle golden shimmer on the back of card while waiting to flip */
+  @keyframes cardShimmer {
+    0%   { box-shadow: 0 0 8px rgba(201,168,76,0.25); }
+    50%  { box-shadow: 0 0 18px rgba(201,168,76,0.55), 0 0 32px rgba(201,168,76,0.2); }
+    100% { box-shadow: 0 0 8px rgba(201,168,76,0.25); }
+  }
+
+  .card-flip-container.is-waiting {
+    animation: cardShimmer 1.8s ease-in-out infinite;
   }
 `;
 
@@ -247,19 +316,42 @@ function ResultsContent() {
   const searchParams = useSearchParams();
   const signId = searchParams.get("sign");
 
-  const [isVisible, setIsVisible]        = useState(false);
-  const [drawnCards, setDrawnCards]      = useState([]);
-  const [horoscope, setHoroscope]        = useState("");
-  const [fortune, setFortune]            = useState("");
-  const [isLoadingReading, setIsLoading] = useState(false);
-  const [readingError, setReadingError]  = useState("");
+  const [isVisible, setIsVisible]         = useState(false);
+  const [drawnCards, setDrawnCards]       = useState([]);
+  const [horoscope, setHoroscope]         = useState("");
+  const [fortune, setFortune]             = useState("");
+  const [isLoadingReading, setIsLoading]  = useState(false);
+  const [readingError, setReadingError]   = useState("");
+
+  // flippedCards[i] = true means card i has completed its flip
+  const [flippedCards, setFlippedCards]   = useState([false, false, false]);
 
   const signData = zodiacSigns.find((s) => s.id === signId);
 
+  // ── Draw cards on mount ──
   useEffect(() => {
     if (signId) setDrawnCards(drawThreeCards(tarotCards, signId));
   }, [signId]);
 
+  // ── Staggered card flip: 0.9s / 1.8s / 2.7s after cards are ready ──
+  useEffect(() => {
+    if (drawnCards.length !== 3) return;
+
+    const delays = [900, 1800, 2700];
+    const timers = delays.map((delay, i) =>
+      setTimeout(() => {
+        setFlippedCards((prev) => {
+          const next = [...prev];
+          next[i] = true;
+          return next;
+        });
+      }, delay)
+    );
+
+    return () => timers.forEach(clearTimeout);
+  }, [drawnCards]);
+
+  // ── Fetch AI reading ──
   useEffect(() => {
     if (!signData || drawnCards.length !== 3) return;
 
@@ -319,7 +411,7 @@ function ResultsContent() {
         <main className="results-screen" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 16px", textAlign: "center" }}>
           <h1 className="font-mystical fallback-heading" style={{ marginBottom: "12px" }}>No Sign Selected</h1>
           <p className="font-body fallback-body" style={{ marginBottom: "20px" }}>Please return to the home page and select your zodiac sign.</p>
-          <a href="/" className="mystical-button">✦ Return Home ✦</a>
+          <a href="/" className="mystical-button">Return Home</a>
         </main>
       </>
     );
@@ -377,8 +469,7 @@ function ResultsContent() {
         {/* ═══════════════════════════════════════════════════════════
             MAIN 2-COLUMN LAYOUT
             Desktop:  Left = Tarot cards | Right = Horoscope + Fortune
-            Mobile:   Stacked — cards → horoscope → fortune
-            CSS class "results-columns" handles the flex direction switch.
+            Mobile:   Stacked — cards -> horoscope -> fortune
             ═══════════════════════════════════════════════════════════ */}
         <div
           className="results-columns"
@@ -393,8 +484,6 @@ function ResultsContent() {
 
           {/* ══════════════════════════════════════════════
               LEFT COLUMN — TAROT CARDS (horizontal row)
-              Cards are wider (165px) with a 3:4 aspect
-              ratio — looks more like actual playing cards.
               ══════════════════════════════════════════════ */}
           <div style={{
             display: "flex",
@@ -412,7 +501,7 @@ function ResultsContent() {
             </h2>
             <div className="gold-divider-short" style={{ alignSelf: "center" }} />
 
-            {/* 3 cards side by side — wraps on mobile via .results-cards-row */}
+            {/* 3 cards side by side */}
             <div
               className="results-cards-row"
               style={{ display: "flex", flexDirection: "row", gap: "12px", flexWrap: "nowrap" }}
@@ -421,8 +510,9 @@ function ResultsContent() {
                 <div
                   key={card.id}
                   className="tarot-card"
-                  style={{ animation: `fadeInUp 0.8s ease-out ${0.2 + index * 0.2}s both` }}
+                  style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
                 >
+                  {/* Position label — always visible */}
                   <p
                     className="font-mystical card-position-label"
                     style={{ letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 700 }}
@@ -430,22 +520,41 @@ function ResultsContent() {
                     {positions[index]}
                   </p>
 
-                  {/* ── Card image — 3:4 aspect ratio (wider, less thin) ── */}
-                  <div style={{
-                    width: "100%",
-                    aspectRatio: "3 / 4",
-                    background: "var(--color-bg-deep)",
-                    overflow: "hidden",
-                  }}>
-                    <img
-                      src={card.image}
-                      alt={card.name}
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      onError={(e) => { e.target.onerror = null; e.target.style.display = "none"; }}
-                    />
+                  {/* ── 3D flip container ── */}
+                  <div
+                    className={`card-flip-container${flippedCards[index] ? "" : " is-waiting"}`}
+                    style={{ background: "var(--color-bg-deep)" }}
+                  >
+                    <div className={`card-flip-inner${flippedCards[index] ? " is-flipped" : ""}`}>
+
+                      {/* BACK FACE — Back of Cards.png (shown first) */}
+                      <div className="card-face-back">
+                        <img
+                          src="/images/tarot/Back of Cards.png"
+                          alt="Card back"
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                          onError={(e) => { e.target.onerror = null; e.target.style.display = "none"; }}
+                        />
+                      </div>
+
+                      {/* FRONT FACE — the drawn card image (revealed after flip) */}
+                      <div className="card-face-front">
+                        <img
+                          src={card.image}
+                          alt={card.name}
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                          onError={(e) => { e.target.onerror = null; e.target.style.display = "none"; }}
+                        />
+                      </div>
+
+                    </div>
                   </div>
 
-                  <div style={{ padding: "6px 6px 8px" }}>
+                  {/* Card name + keywords — fade in after flip completes */}
+                  <div
+                    className={`card-text-block${flippedCards[index] ? " is-visible" : ""}`}
+                    style={{ padding: "6px 6px 8px", width: "100%" }}
+                  >
                     <h3 className="font-mystical" style={{ fontWeight: 700 }}>
                       {card.name}
                     </h3>
@@ -453,12 +562,13 @@ function ResultsContent() {
                       {card.keywords.join(" · ")}
                     </p>
                   </div>
+
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── Vertical gold divider (desktop only — hidden on mobile via CSS) ── */}
+          {/* ── Vertical gold divider (desktop only) ── */}
           <div
             className="results-col-divider"
             style={{
@@ -471,8 +581,6 @@ function ResultsContent() {
 
           {/* ══════════════════════════════════════════════════
               RIGHT COLUMN — HOROSCOPE + FORTUNE
-              flex:1 so it fills all remaining horizontal space.
-              On mobile this becomes the second stacked block.
               ══════════════════════════════════════════════════ */}
           <div
             className="results-col-text"
@@ -491,7 +599,7 @@ function ResultsContent() {
 
               {isLoadingReading ? (
                 <p className="font-mystical panel-status-msg" style={{ fontStyle: "italic", color: "var(--color-gold-dim)", textAlign: "center" }}>
-                  ✦ The stars are aligning your reading... ✦
+                  The stars are aligning your reading...
                 </p>
               ) : readingError ? (
                 <p className="panel-status-msg" style={{ color: "#c0392b" }}>{readingError}</p>
@@ -522,7 +630,7 @@ function ResultsContent() {
 
               {isLoadingReading ? (
                 <p className="font-mystical panel-status-msg" style={{ fontStyle: "italic", color: "var(--color-gold-dim)", textAlign: "center" }}>
-                  ✦ The oracle is awakening... ✦
+                  The oracle is awakening...
                 </p>
               ) : readingError ? (
                 <p className="panel-status-msg" style={{ color: "#c0392b" }}>{readingError}</p>
