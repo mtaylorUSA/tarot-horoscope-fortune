@@ -64,14 +64,12 @@ const WELCOME_STYLES = `
     word-break: break-word;
     text-align: center;
     width: 100%;
-    max-width: 480px;
     box-sizing: border-box;
   }
 
-  /* ── Tooltip wrapper: full width on mobile ── */
+  /* ── Tooltip wrapper: full width ── */
   .btn-tooltip-wrapper {
     width: 100%;
-    max-width: 480px;
   }
 `;
 
@@ -266,7 +264,6 @@ export default function WelcomePage() {
                 style={{
                   backgroundColor: "#13103a",
                   borderRadius: "10px",
-                  aspectRatio: "4 / 3.6",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -329,59 +326,65 @@ export default function WelcomePage() {
           </div>
         )}
 
-        {/* ──────────────────── DOB Input ──────────────────── */}
-        <section style={{ width: "100%", maxWidth: "480px", marginBottom: "14px" }}>
-          <label
-            className="font-mystical"
-            htmlFor="dob-input"
-            style={{
-              display: "block",
-              textAlign: "center",
-              fontSize: "1.1rem",
-              fontWeight: 700,
-              marginBottom: "8px",
-              letterSpacing: "0.1em",
-              color: "#1a1408",
-            }}
-          >
-            Or Enter Your Date of Birth
-          </label>
-          <input
-            id="dob-input"
-            type="date"
-            className="mystical-input"
-            value={dob}
-            onChange={handleDobChange}
-          />
-        </section>
+        {/* ──────────────── DOB Input + Button — shared width container ──────────────── */}
+        <div style={{ width: "100%", maxWidth: "480px", padding: "0 4px", boxSizing: "border-box" }}>
 
-        {/* ──────────────────── Get My Reading Button ──────────────────── */}
-        <div className="btn-tooltip-wrapper">
-          <span className={`tooltip ${!selectedSign ? "show" : ""}`}>
-            ✦ Please select your star sign first ✦
-          </span>
-          <button
-            className="reading-btn"
-            onClick={handleSubmit}
-            disabled={!selectedSign}
-            style={{
-              fontSize: "clamp(0.95rem, 2.5vw, 1.2rem)",
-              padding: "14px 32px",
-              fontWeight: 800,
-              fontFamily: "inherit",
-              letterSpacing: "0.12em",
-              backgroundColor: "#13103a",
-              color: "#C9A84C",
-              border: "3px solid #C9A84C",
-              borderRadius: "10px",
-              cursor: selectedSign ? "pointer" : "not-allowed",
-              transition: "all 0.2s ease",
-              textTransform: "uppercase",
-            }}
-          >
-            ✦ Draw My Tarot Cards and Get My Reading ✦
-          </button>
-        </div>
+          {/* ── DOB Input ── */}
+          <div style={{ marginBottom: "14px" }}>
+            <label
+              className="font-mystical"
+              htmlFor="dob-input"
+              style={{
+                display: "block",
+                textAlign: "center",
+                fontSize: "1.1rem",
+                fontWeight: 700,
+                marginBottom: "8px",
+                letterSpacing: "0.1em",
+                color: "#1a1408",
+              }}
+            >
+              Or Enter Your Date of Birth
+            </label>
+            <input
+              id="dob-input"
+              type="date"
+              className="mystical-input"
+              value={dob}
+              onChange={handleDobChange}
+            />
+          </div>
+
+          {/* ── Get My Reading Button ── */}
+          <div className="btn-tooltip-wrapper" style={{ width: "100%", maxWidth: "none" }}>
+            <span className={`tooltip ${!selectedSign ? "show" : ""}`}>
+              ✦ Please select your star sign first ✦
+            </span>
+            <button
+              className="reading-btn"
+              onClick={handleSubmit}
+              disabled={!selectedSign}
+              style={{
+                fontSize: "clamp(0.95rem, 2.5vw, 1.2rem)",
+                padding: "14px 32px",
+                fontWeight: 800,
+                fontFamily: "inherit",
+                letterSpacing: "0.12em",
+                backgroundColor: "#13103a",
+                color: "#C9A84C",
+                border: "3px solid #C9A84C",
+                borderRadius: "10px",
+                cursor: selectedSign ? "pointer" : "not-allowed",
+                transition: "all 0.2s ease",
+                textTransform: "uppercase",
+                maxWidth: "none",
+              }}
+            >
+              ✦ Draw My Tarot Cards and Get My Reading ✦
+            </button>
+          </div>
+
+        </div>{/* end shared width container */}
 
         <div className="gold-divider" style={{ maxWidth: "600px", marginTop: "10px", marginBottom: "10px" }} />
 
