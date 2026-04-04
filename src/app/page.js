@@ -73,6 +73,28 @@ const WELCOME_STYLES = `
     width: 100%;
     max-width: 480px;
   }
+
+  /* ── DOB Input: gold text + readable placeholder on all browsers ── */
+  .dob-input {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 12px 10px;
+    background-color: #13103a;
+    color: #C9A84C;
+    -webkit-text-fill-color: #C9A84C;   /* Safari / iOS override */
+    border: 2px solid rgba(201,168,76,0.5);
+    border-radius: 8px;
+  }
+  .dob-input::-webkit-datetime-edit        { color: #C9A84C; -webkit-text-fill-color: #C9A84C; }
+  .dob-input::-webkit-datetime-edit-fields-wrapper { color: #C9A84C; }
+  .dob-input::-webkit-datetime-edit-text   { color: rgba(201,168,76,0.6); }
+  .dob-input::-webkit-date-and-time-value  { color: #C9A84C; }
+  .dob-input::-webkit-calendar-picker-indicator {
+    filter: invert(75%) sepia(40%) saturate(400%) hue-rotate(5deg); /* gold tint */
+    cursor: pointer;
+  }
 `;
 
 // ──────────────────────────────────────────────────────────
@@ -330,7 +352,7 @@ export default function WelcomePage() {
         )}
 
         {/* ──────────────────── DOB Input ──────────────────── */}
-        <section style={{ width: "100%", maxWidth: "420px", marginBottom: "14px" }}>
+        <section style={{ width: "100%", maxWidth: "480px", marginBottom: "14px" }}>
           <label
             className="font-mystical"
             htmlFor="dob-input"
@@ -349,20 +371,9 @@ export default function WelcomePage() {
           <input
             id="dob-input"
             type="date"
-            className="mystical-input"
+            className="mystical-input dob-input"
             value={dob}
             onChange={handleDobChange}
-            style={{
-              textAlign: "center",
-              fontSize: "1.1rem",
-              padding: "10px",
-              width: "100%",
-              backgroundColor: "#13103a",
-              color: "#C9A84C",
-              border: "2px solid rgba(201,168,76,0.4)",
-              borderRadius: "8px",
-              boxSizing: "border-box",
-            }}
           />
         </section>
 
