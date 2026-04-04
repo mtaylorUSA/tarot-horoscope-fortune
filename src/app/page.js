@@ -15,22 +15,63 @@ import zodiacSigns from "@/data/zodiac-signs.json";
 // objects do not support !important — must use real CSS)
 // ──────────────────────────────────────────────────────────
 const WELCOME_STYLES = `
+
+  /* ── Zodiac Grid: responsive columns ── */
+  .zodiac-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);   /* mobile: 3 columns */
+  }
+
+  @media (min-width: 480px) {
+    .zodiac-grid {
+      grid-template-columns: repeat(4, 1fr); /* small tablet: 4 columns */
+    }
+  }
+
+  @media (min-width: 700px) {
+    .zodiac-grid {
+      grid-template-columns: repeat(6, 1fr); /* desktop: 6 columns */
+    }
+  }
+
+  /* ── Tile text: allow wrapping on very small screens ── */
   .welcome-screen .date-range {
-    font-size: clamp(0.82rem, 1.2vw, 1.05rem) !important;
+    font-size: clamp(0.65rem, 2vw, 1.05rem) !important;
     font-weight: 700 !important;
     color: #ffffff !important;
     line-height: 1.3;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;     /* was nowrap — allow wrap on mobile */
+    word-break: break-word;
   }
+
   .welcome-screen .sign-name {
-    font-size: clamp(0.8rem, 1.2vw, 1.05rem) !important;
+    font-size: clamp(0.65rem, 2vw, 1.05rem) !important;
     font-weight: 600;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;     /* was nowrap — allow wrap on mobile */
+    word-break: break-word;
   }
+
   .welcome-screen .glyph {
-    font-size: clamp(1.8rem, 3.2vw, 2.8rem) !important;
+    font-size: clamp(1.4rem, 4vw, 2.8rem) !important;
+  }
+
+  /* ── Button: allow wrapping on narrow screens ── */
+  .reading-btn {
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    box-sizing: border-box;
+  }
+
+  /* ── Tooltip wrapper: full width on mobile ── */
+  .btn-tooltip-wrapper {
+    width: 100%;
+    max-width: 480px;
   }
 `;
 
@@ -117,7 +158,8 @@ export default function WelcomePage() {
           }
           .btn-tooltip-wrapper {
             position: relative;
-            display: inline-block;
+            display: flex;
+            justify-content: center;
             margin-bottom: 12px;
           }
           .btn-tooltip-wrapper .tooltip {
@@ -200,13 +242,13 @@ export default function WelcomePage() {
             Choose Your Zodiac Sign
           </p>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(6, 1fr)",
-              gap: "8px",
-            }}
-          >
+          {/*
+            zodiac-grid class handles responsive columns via CSS media queries:
+              mobile  (<480px):  3 columns
+              tablet  (480-700px): 4 columns
+              desktop (700px+):  6 columns
+          */}
+          <div className="zodiac-grid">
             {zodiacSigns.map((sign) => (
               <div
                 key={sign.id}
@@ -229,7 +271,7 @@ export default function WelcomePage() {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "4px 6px",
+                  padding: "4px 4px",
                   cursor: "pointer",
                   overflow: "hidden",
                   gap: "2px",
@@ -319,6 +361,7 @@ export default function WelcomePage() {
               color: "#C9A84C",
               border: "2px solid rgba(201,168,76,0.4)",
               borderRadius: "8px",
+              boxSizing: "border-box",
             }}
           />
         </section>
@@ -333,8 +376,8 @@ export default function WelcomePage() {
             onClick={handleSubmit}
             disabled={!selectedSign}
             style={{
-              fontSize: "1.2rem",
-              padding: "14px 48px",
+              fontSize: "clamp(0.95rem, 2.5vw, 1.2rem)",
+              padding: "14px 32px",
               fontWeight: 800,
               fontFamily: "inherit",
               letterSpacing: "0.12em",
