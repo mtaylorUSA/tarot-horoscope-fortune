@@ -219,7 +219,17 @@ const RESULTS_STYLES = `
 `;
 
 // ──────────────────────────────────────────────────────────────
-// Helper: Draw 3 tarot cards (random once per visitor per day)
+// Helper: Draw 3 tarot cards (locked to sign + date via localStorage)
+//
+// HOW THE CARD LOCK WORKS:
+//   - Storage key: thf-draw-{signId}-{YYYY-M-D}
+//   - First visit of the day: draws 3 random cards, saves their IDs
+//   - All subsequent visits same day (including browser refresh):
+//     returns the same 3 cards from localStorage
+//   - Old draws from previous days are cleaned up automatically
+//
+// RESULT: A user cannot refresh the browser to get new cards.
+//   The same 3 cards are shown all day for the same sign.
 // ──────────────────────────────────────────────────────────────
 function drawThreeCards(allCards, signId) {
   const today = new Date();
@@ -312,15 +322,32 @@ function ResultsContent() {
   }, [drawnCards]);
 
   // ── Fetch AI reading ──
+  // FIX (2026-04-04): readingKey now includes card IDs in addition to sign + date.
+  // This ensures the horoscope and fortune are always tied to the exact 3 cards drawn.
+  // If a user draws different cards (new device, cleared cache, new day), a fresh
+  // OpenAI call is made for those cards instead of serving a cached reading that
+  // was generated for a different set of cards.
   useEffect(() => {
     if (!signData || drawnCards.length !== 3) return;
 
-    const today      = new Date();
-    const dateKey    = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-    const readingKey = `thf-reading-${signId}-${dateKey}`;
+    const today   = new Date();
+    const dateKey = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+
+    // Include the 3 card IDs in the cache key so the reading is locked to this exact draw
+    const cardIds    = drawnCards.map((c) => c.id).join("-");
+    const readingKey = `thf-reading-${signId}-${dateKey}-${cardIds}`;
 
     if (typeof window !== "undefined") {
       try {
+        // Clean up stale reading cache entries from previous days
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith("thf-reading-") && !key.includes(dateKey)) {
+            localStorage.removeItem(key);
+          }
+        }
+
+        // Return cached reading if it matches this exact sign + date + card draw
         const saved = localStorage.getItem(readingKey);
         if (saved) {
           const parsed = JSON.parse(saved);
