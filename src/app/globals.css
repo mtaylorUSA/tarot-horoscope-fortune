@@ -296,11 +296,14 @@ body {
   aspect-ratio: 4 / 3.6;               /* desktop default */
 }
 
-/* Mobile: shorter tiles so button stays on screen */
+/* ── Mobile: flatter tiles so button and DOB field stay on screen ── */
+/*    Old: aspect-ratio 5/3.4 → ~77px tall × 4 rows = ~332px total  */
+/*    New: aspect-ratio 5/2.8 → ~63px tall × 4 rows = ~276px total  */
+/*    Savings: ~56px of vertical space — brings button into view     */
 @media (max-width: 699px) {
   .zodiac-tile {
-    aspect-ratio: 5 / 3.4;             /* wider/shorter on mobile */
-    padding: 6px 4px;
+    aspect-ratio: 5 / 2.8;
+    padding: 4px 3px;
   }
 }
 
@@ -364,23 +367,76 @@ body {
   color: #9a917e;
 }
 
-/* ── Date input: navy background + gold text on all browsers incl. iOS Safari ── */
+/* ════════════════════════════════════════
+   DATE INPUT — Dark Navy + Gold Text
+   Fixes three mobile/iOS issues:
+     1. Black background → dark navy (#13103a)
+        Fix: appearance:none removes iOS native chrome;
+             !important overrides Safari's background override
+     2. MM/DD/YYYY invisible
+        Fix: webkit datetime pseudo-elements forced gold with !important
+     3. Width matches button
+        Fix: width:100% + box-sizing:border-box (inherited from .mystical-input)
+   ════════════════════════════════════════ */
 .mystical-input[type="date"] {
-  background: #13103a;                      /* dark navy — matches zodiac tiles   */
-  background-color: #13103a;
+  /* ── Background: force dark navy on iOS Safari ── */
+  -webkit-appearance: none;                        /* removes iOS native date-input chrome     */
+  appearance: none;                                /* removes native chrome on other browsers  */
+  background: #13103a !important;                  /* !important needed — iOS ignores without  */
+  background-color: #13103a !important;
+
+  /* ── Text color ── */
   color: #C9A84C;
-  -webkit-text-fill-color: #C9A84C;         /* Safari / iOS override              */
-  color-scheme: dark;                       /* tells browser internals: dark mode */
+  -webkit-text-fill-color: #C9A84C;                /* Safari / iOS text color override         */
+
+  /* ── Dark calendar picker (desktop) ── */
+  color-scheme: dark;
+
+  /* ── Other styles ── */
   border-color: rgba(201, 168, 76, 0.5);
   text-align: center;
   font-size: 1rem;
   cursor: pointer;
+  min-height: 48px;                                /* ensures the field has visible tap height */
 }
 
-.mystical-input[type="date"]::-webkit-datetime-edit             { color: #C9A84C; -webkit-text-fill-color: #C9A84C; }
-.mystical-input[type="date"]::-webkit-datetime-edit-fields-wrapper { color: #C9A84C; -webkit-text-fill-color: #C9A84C; }
-.mystical-input[type="date"]::-webkit-datetime-edit-text        { color: rgba(201,168,76,0.55); -webkit-text-fill-color: rgba(201,168,76,0.55); }
-.mystical-input[type="date"]::-webkit-date-and-time-value       { color: #C9A84C; -webkit-text-fill-color: #C9A84C; }
+/* ── MM/DD/YYYY placeholder and value text — forced gold ── */
+/* These pseudo-elements control the displayed date text in WebKit/Blink browsers */
+.mystical-input[type="date"]::-webkit-datetime-edit {
+  color: #C9A84C !important;
+  -webkit-text-fill-color: #C9A84C !important;
+  background: transparent;
+  padding: 0 2px;
+}
+
+.mystical-input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  color: #C9A84C !important;
+  -webkit-text-fill-color: #C9A84C !important;
+  background: transparent;
+}
+
+/* The separator characters between MM / DD / YYYY */
+.mystical-input[type="date"]::-webkit-datetime-edit-text {
+  color: rgba(201, 168, 76, 0.65) !important;
+  -webkit-text-fill-color: rgba(201, 168, 76, 0.65) !important;
+}
+
+/* Month, Day, Year fields individually */
+.mystical-input[type="date"]::-webkit-datetime-edit-month-field,
+.mystical-input[type="date"]::-webkit-datetime-edit-day-field,
+.mystical-input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #C9A84C !important;
+  -webkit-text-fill-color: #C9A84C !important;
+  background: transparent;
+}
+
+/* The full value display (used by some browsers instead of individual fields) */
+.mystical-input[type="date"]::-webkit-date-and-time-value {
+  color: #C9A84C !important;
+  -webkit-text-fill-color: #C9A84C !important;
+}
+
+/* Calendar icon — tinted gold */
 .mystical-input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(75%) sepia(40%) saturate(400%) hue-rotate(5deg);
   cursor: pointer;

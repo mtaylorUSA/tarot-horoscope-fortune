@@ -35,6 +35,13 @@ const WELCOME_STYLES = `
     }
   }
 
+  /* ── Mobile: tighter grid gap saves ~6px of vertical space ── */
+  @media (max-width: 699px) {
+    .zodiac-grid {
+      gap: 6px;
+    }
+  }
+
   /* ── Tile text: allow wrapping on very small screens ── */
   .welcome-screen .date-range {
     font-size: clamp(0.65rem, 2vw, 1.05rem) !important;
