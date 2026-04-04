@@ -16,7 +16,7 @@ import tarotCards from "@/data/tarot-cards.json";
    ├───────────────────────────┬──────────────────────────┤
    │  TAROT CARDS              │  HOROSCOPE               │
    │  [Past] [Present] [Future]│  AI horoscope text       │
-   │                           │  Element · Planet        │
+   │  ✦ One reading per day ✦  │  Element · Planet        │
    │                           ├──────────────────────────┤
    │                           │  FORTUNE                 │
    │                           │  AI fortune text         │
@@ -29,6 +29,7 @@ import tarotCards from "@/data/tarot-cards.json";
    ├─────────────────────┤
    │  TAROT CARDS        │
    │  [Past][Pres][Fut]  │
+   │  ✦ One reading/day  │
    ├─────────────────────┤
    │  HOROSCOPE          │
    │  text...            │
@@ -593,6 +594,24 @@ function ResultsContent() {
                 </div>
               ))}
             </div>
+
+            {/* ── One reading per day notice — below the 3 cards ── */}
+            <p
+              className="font-mystical"
+              style={{
+                textAlign: "center",
+                fontSize: "0.78rem",
+                fontStyle: "italic",
+                color: "#7a6840",
+                letterSpacing: "0.04em",
+                marginTop: "2px",
+                marginBottom: "0",
+                maxWidth: "620px",
+              }}
+            >
+              ✦ Your cards are drawn once per day — your custom reading is yours alone until midnight ✦
+            </p>
+
           </div>
 
           {/* ── Vertical gold divider (desktop only) ── */}

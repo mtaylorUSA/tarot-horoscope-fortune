@@ -391,6 +391,22 @@ export default function WelcomePage() {
             </button>
           </div>
 
+          {/* ── One reading per day notice ── */}
+          <p
+            className="font-mystical"
+            style={{
+              textAlign: "center",
+              fontSize: "0.82rem",
+              fontStyle: "italic",
+              color: "#7a6840",
+              letterSpacing: "0.04em",
+              marginTop: "6px",
+              marginBottom: "0",
+            }}
+          >
+            ✦ One custom reading per day, per sign. Return tomorrow for a new draw and custom reading ✦
+          </p>
+
         </div>{/* end shared width container */}
 
         <div className="gold-divider" style={{ maxWidth: "600px", marginTop: "10px", marginBottom: "10px" }} />
