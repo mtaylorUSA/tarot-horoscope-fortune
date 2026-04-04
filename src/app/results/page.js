@@ -190,51 +190,11 @@ const RESULTS_STYLES = `
 
   /* ══════════════════════════════════════════════════
      3D CARD FLIP ANIMATION
+     NOTE: Critical backface/transform properties are
+     applied as inline styles on the elements directly
+     to guarantee they take effect before first paint.
+     Only non-critical styles live here in the sheet.
      ══════════════════════════════════════════════════ */
-
-  /* Outer container establishes the 3D perspective */
-  .card-flip-container {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    perspective: 900px;
-  }
-
-  /* Inner wrapper holds both faces and does the rotation */
-  .card-flip-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.85s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  }
-
-  /* Trigger the flip by rotating 180deg on Y axis */
-  .card-flip-inner.is-flipped {
-    transform: rotateY(180deg);
-  }
-
-  /* Both faces share the same space — hidden when facing away */
-  .card-face-back,
-  .card-face-front {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    overflow: hidden;
-    background: var(--color-bg-deep);
-  }
-
-  /* Back of card faces the user initially (rotateY 0deg) */
-  .card-face-back {
-    transform: rotateY(0deg);
-  }
-
-  /* Front of card is hidden initially (rotateY 180deg) */
-  .card-face-front {
-    transform: rotateY(180deg);
-  }
 
   /* Card text block (name + keywords) fades in after flip */
   .card-text-block {
@@ -253,7 +213,7 @@ const RESULTS_STYLES = `
     100% { box-shadow: 0 0 8px rgba(201,168,76,0.25); }
   }
 
-  .card-flip-container.is-waiting {
+  .card-shimmer {
     animation: cardShimmer 1.8s ease-in-out infinite;
   }
 `;
@@ -521,14 +481,42 @@ function ResultsContent() {
                   </p>
 
                   {/* ── 3D flip container ── */}
+                  {/* perspective on the outer div establishes the 3D space */}
                   <div
-                    className={`card-flip-container${flippedCards[index] ? "" : " is-waiting"}`}
-                    style={{ background: "var(--color-bg-deep)" }}
+                    className={flippedCards[index] ? "" : "card-shimmer"}
+                    style={{
+                      width: "100%",
+                      aspectRatio: "3 / 4",
+                      perspective: "900px",
+                      background: "#0d0a04",  /* dark base — prevents any white flash */
+                    }}
                   >
-                    <div className={`card-flip-inner${flippedCards[index] ? " is-flipped" : ""}`}>
-
-                      {/* BACK FACE — Back of Cards.png (shown first) */}
-                      <div className="card-face-back">
+                    {/* inner div rotates; transform-style must be inline to apply before paint */}
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                        transformStyle: "preserve-3d",
+                        WebkitTransformStyle: "preserve-3d",
+                        transition: "transform 0.85s cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+                        transform: flippedCards[index] ? "rotateY(180deg)" : "rotateY(0deg)",
+                      }}
+                    >
+                      {/* BACK FACE — visible initially (rotateY 0deg = facing user) */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          width: "100%",
+                          height: "100%",
+                          backfaceVisibility: "hidden",
+                          WebkitBackfaceVisibility: "hidden",
+                          transform: "rotateY(0deg) translateZ(1px)",
+                          overflow: "hidden",
+                          background: "#0d0a04",
+                        }}
+                      >
                         <img
                           src="/images/tarot/Back of Cards.png"
                           alt="Card back"
@@ -537,8 +525,20 @@ function ResultsContent() {
                         />
                       </div>
 
-                      {/* FRONT FACE — the drawn card image (revealed after flip) */}
-                      <div className="card-face-front">
+                      {/* FRONT FACE — hidden initially (rotateY 180deg = facing away) */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          width: "100%",
+                          height: "100%",
+                          backfaceVisibility: "hidden",
+                          WebkitBackfaceVisibility: "hidden",
+                          transform: "rotateY(180deg) translateZ(1px)",
+                          overflow: "hidden",
+                          background: "#0d0a04",
+                        }}
+                      >
                         <img
                           src={card.image}
                           alt={card.name}
