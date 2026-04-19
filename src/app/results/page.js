@@ -9,7 +9,7 @@ import tarotCards from "@/data/tarot-cards.json";
 /* ═══════════════════════════════════════════
    RESULTS SCREEN – app/results/page.js
 
-   Layout (desktop — 2 columns, side by side):
+   Layout (desktop ≥1200px — 2 columns, side by side):
    ┌──────────────────────────────────────────────────────┐
    │              Reading for Leo                         │
    │              Sunday, April 3, 2026                   │
@@ -22,7 +22,7 @@ import tarotCards from "@/data/tarot-cards.json";
    │                           │  AI fortune text         │
    └───────────────────────────┴──────────────────────────┘
 
-   Layout (mobile ≤720px — stacked vertically):
+   Layout (iPad / phone <1200px — stacked vertically):
    ┌─────────────────────┐
    │  Reading for Leo    │
    │  Sunday, April 3    │
@@ -37,6 +37,14 @@ import tarotCards from "@/data/tarot-cards.json";
    │  FORTUNE            │
    │  text...            │
    └─────────────────────┘
+
+   CHANGE HISTORY:
+   - 2026-04-19: Responsive breakpoint raised 720px → 1200px
+     so iPads (1024-1366px) get the stacked layout instead of
+     the cramped 2-column desktop view. Added tablet-tier
+     (481-1199px) so cards are medium-sized (150px) on iPads
+     instead of phone-tiny (110px). Desktop (≥1200px) and
+     phone (≤480px) behavior unchanged.
    ═══════════════════════════════════════════ */
 
 const RESULTS_STYLES = `
@@ -133,8 +141,14 @@ const RESULTS_STYLES = `
 
   /* ══════════════════════════════════════════════════
      RESPONSIVE LAYOUT
-     Desktop  (>720px):  2-column row, side by side
-     Mobile  (<=720px):  single column, stacked
+     Desktop  (≥1200px):  2-column row, side by side
+     iPad/Tablet (481-1199px): stacked, medium cards
+     Phone  (≤480px):     stacked, small wrapping cards
+
+     2026-04-19 FIX: Breakpoint raised from 720px → 1200px
+     so iPads (1024-1366px) get the stacked layout instead
+     of the cramped 2-column desktop layout. Added mid-tier
+     for tablets so cards aren't phone-tiny on a large iPad.
      ══════════════════════════════════════════════════ */
 
   /* Desktop default — row layout */
@@ -148,8 +162,8 @@ const RESULTS_STYLES = `
     display: block !important;
   }
 
-  /* Mobile — switch to column, hide vertical divider */
-  @media (max-width: 720px) {
+  /* iPad / tablet / narrow laptop — switch to column, hide vertical divider */
+  @media (max-width: 1199px) {
     .results-columns {
       flex-direction: column !important;
       align-items: stretch !important;
@@ -159,28 +173,39 @@ const RESULTS_STYLES = `
       display: none !important;
     }
 
-    /* On mobile, cards row should wrap so they don't overflow */
-    .results-cards-row {
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-    }
-
-    /* On mobile, each card slightly smaller to fit 3 across small screens */
-    .results-screen .tarot-card {
-      width: 110px !important;
-      min-width: 110px !important;
-      max-width: 110px !important;
-    }
-
-    /* On mobile, add a horizontal gold divider above horoscope */
+    /* Horizontal gold divider above horoscope when stacked */
     .results-col-text {
       border-top: 1px solid rgba(201, 168, 76, 0.35) !important;
       padding-top: 12px !important;
     }
   }
 
-  /* Desktop — card size */
-  @media (min-width: 721px) {
+  /* Phone only (≤480px) — cards wrap and shrink further */
+  @media (max-width: 480px) {
+    .results-cards-row {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+    }
+
+    .results-screen .tarot-card {
+      width: 110px !important;
+      min-width: 110px !important;
+      max-width: 110px !important;
+    }
+  }
+
+  /* iPad / tablet (481-1199px) — medium cards, no wrapping needed */
+  @media (min-width: 481px) and (max-width: 1199px) {
+    .results-screen .tarot-card {
+      width: 150px !important;
+      min-width: 150px !important;
+      max-width: 150px !important;
+      flex-shrink: 0 !important;
+    }
+  }
+
+  /* Desktop (≥1200px) — full-size cards */
+  @media (min-width: 1200px) {
     .results-screen .tarot-card {
       width: 195px !important;
       min-width: 195px !important;
