@@ -368,40 +368,51 @@ body {
 }
 
 /* ════════════════════════════════════════
-   DATE INPUT — Dark Navy + Gold Text
-   Fixes three mobile/iOS issues:
-     1. Black background → dark navy (#13103a)
-        Fix: appearance:none removes iOS native chrome;
-             !important overrides Safari's background override
-     2. MM/DD/YYYY invisible
-        Fix: webkit datetime pseudo-elements forced gold with !important
-     3. Width matches button
-        Fix: width:100% + box-sizing:border-box (inherited from .mystical-input)
+   DATE INPUT — Cross-Browser Strategy
+   ────────────────────────────────────────
+   Problem: appearance:none behaves differently per browser engine:
+     • Chromium (Chrome, Edge, Brave, DDG Android):
+         appearance:none removes native chrome but date picker still opens ✅
+     • iOS WebKit (Safari, DDG iOS):
+         appearance:none REQUIRED to allow custom background-color ✅
+     • Firefox (Gecko):
+         appearance:none AND -webkit-appearance:none BOTH break the native
+         date picker — field becomes a plain unresponsive text box ❌
+
+   Solution: Apply appearance:none ONLY on iOS via a feature query.
+     @supports (-webkit-touch-callout: none) matches iOS browsers only.
+     Firefox, Chrome, and Edge do not support -webkit-touch-callout,
+     so they never enter this block.
+
+   MM/DD/YYYY visibility: handled by JS overlay in page.js (works in
+   all browsers regardless of webkit pseudo-element support).
    ════════════════════════════════════════ */
+
+/* ── Base rule: applies to all browsers ── */
 .mystical-input[type="date"] {
-  /* ── Background: force dark navy on iOS Safari ── */
-  -webkit-appearance: none;                        /* removes iOS native date-input chrome     */
-  appearance: none;                                /* removes native chrome on other browsers  */
-  background: #13103a !important;                  /* !important needed — iOS ignores without  */
+  background: #13103a !important;
   background-color: #13103a !important;
-
-  /* ── Text color ── */
   color: #C9A84C;
-  -webkit-text-fill-color: #C9A84C;                /* Safari / iOS text color override         */
-
-  /* ── Dark calendar picker (desktop) ── */
-  color-scheme: dark;
-
-  /* ── Other styles ── */
+  -webkit-text-fill-color: #C9A84C;         /* Chrome/Safari text color */
   border-color: rgba(201, 168, 76, 0.5);
   text-align: center;
   font-size: 1rem;
   cursor: pointer;
-  min-height: 48px;                                /* ensures the field has visible tap height */
+  min-height: 48px;
+  /* NOTE: appearance:none intentionally omitted here — see iOS block below */
 }
 
-/* ── MM/DD/YYYY placeholder and value text — forced gold ── */
-/* These pseudo-elements control the displayed date text in WebKit/Blink browsers */
+/* ── iOS only: appearance:none needed to show custom background ── */
+/* -webkit-touch-callout is only supported on iOS — Firefox, Chrome,  */
+/* and Edge do not match this @supports block, so they are unaffected. */
+@supports (-webkit-touch-callout: none) {
+  .mystical-input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+/* ── Webkit datetime text — Chrome, Edge, Safari (not Firefox) ── */
 .mystical-input[type="date"]::-webkit-datetime-edit {
   color: #C9A84C !important;
   -webkit-text-fill-color: #C9A84C !important;
@@ -415,13 +426,11 @@ body {
   background: transparent;
 }
 
-/* The separator characters between MM / DD / YYYY */
 .mystical-input[type="date"]::-webkit-datetime-edit-text {
   color: rgba(201, 168, 76, 0.65) !important;
   -webkit-text-fill-color: rgba(201, 168, 76, 0.65) !important;
 }
 
-/* Month, Day, Year fields individually */
 .mystical-input[type="date"]::-webkit-datetime-edit-month-field,
 .mystical-input[type="date"]::-webkit-datetime-edit-day-field,
 .mystical-input[type="date"]::-webkit-datetime-edit-year-field {
@@ -430,7 +439,6 @@ body {
   background: transparent;
 }
 
-/* The full value display (used by some browsers instead of individual fields) */
 .mystical-input[type="date"]::-webkit-date-and-time-value {
   color: #C9A84C !important;
   -webkit-text-fill-color: #C9A84C !important;
