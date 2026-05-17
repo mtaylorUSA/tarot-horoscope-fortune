@@ -293,17 +293,15 @@ body {
   text-align: center;
   min-width: 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  aspect-ratio: 4 / 3.6;               /* desktop default */
+  min-height: 116px;                   /* a floor — tile grows for content, never forced tall */
 }
 
-/* ── Mobile: flatter tiles so button and DOB field stay on screen ── */
-/*    Old: aspect-ratio 5/3.4 → ~77px tall × 4 rows = ~332px total  */
-/*    New: aspect-ratio 5/2.8 → ~63px tall × 4 rows = ~276px total  */
-/*    Savings: ~56px of vertical space — brings button into view     */
+/* ── Mobile: a shorter min-height floor — still roomy enough for the ── */
+/*    enlarged glyph + readable text, without forcing empty space.     */
 @media (max-width: 699px) {
   .zodiac-tile {
-    aspect-ratio: 5 / 2.8;
-    padding: 4px 3px;
+    min-height: 90px;
+    padding: 6px 4px;
   }
 }
 
@@ -451,54 +449,6 @@ body {
   opacity: 0.85;
 }
 
-/* ──────────────── Get My Reading Button ──────────────── */
-button.mystical-button {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 16px 48px !important;
-  background: #000000 !important;
-  background-color: #000000 !important;
-  background-image: none !important;
-  border: 2px solid #d4b254 !important;
-  border-radius: 8px !important;
-  color: #d4b254 !important;
-  font-family: var(--font-mystical) !important;
-  font-size: 1.15rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7) !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-}
-
-button.mystical-button:hover {
-  background: #111008 !important;
-  background-color: #111008 !important;
-  border-color: #e8d48b !important;
-  color: #e8d48b !important;
-  box-shadow: 0 0 30px rgba(212, 178, 84, 0.4), 0 4px 20px rgba(0, 0, 0, 0.6) !important;
-  transform: translateY(-1px) !important;
-}
-
-button.mystical-button:active {
-  transform: translateY(0) !important;
-}
-
-button.mystical-button:disabled {
-  background: #000000 !important;
-  background-color: #000000 !important;
-  border-color: #d4b254 !important;
-  color: #d4b254 !important;
-  opacity: 0.6 !important;
-  cursor: not-allowed !important;
-  transform: none !important;
-}
-
 /* ──────────────── Decorative Divider ──────────────── */
 .gold-divider {
   width: 100%;
@@ -609,17 +559,21 @@ button.mystical-button:disabled {
 }
 
 /* ──────────────── Responsive ──────────────── */
+/* Phone tile text sizes — the single source of truth for mobile.
+   Glyph enlarged so it is not clipped; date range enlarged for
+   readability. Desktop sizes are the base rules above (lines ~323+). */
 @media (max-width: 768px) {
   .zodiac-tile .glyph {
-    font-size: 1.5rem;
+    font-size: 1.85rem;
+    margin-bottom: 4px;
   }
 
   .zodiac-tile .sign-name {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
   }
 
   .zodiac-tile .date-range {
-    font-size: 0.6rem;
+    font-size: 0.72rem;
   }
 
   .scroll-container {
