@@ -9,8 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "next": "16.1.6",
-    "pocketbase": "^0.26.8",
+    "pocketbase": "^0.26.9",
     "react": "19.2.3",
     "react-datepicker": "^9.1.0",
     "react-dom": "19.2.3"

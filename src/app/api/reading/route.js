@@ -20,9 +20,58 @@
 //     "Watch for..." / "Pay attention when..."
 //   - Stays abstract — no naming life areas (work, money, etc.)
 //   - Banned-word list + 3 good examples + 6 bad examples
+//
+// 2026-07-04 UPDATE: Wired in the stored GENERIC daily horoscope.
+//   - Before generating, this route now READS today's stored generic
+//     horoscope for the given sign from the PocketBase `horoscopes`
+//     collection. It uses the SUPERUSER client (getAdminPocketBase),
+//     because the horoscopes API rules are locked to server-only access
+//     (the 2026-06-20 "Option A" decision), so an anonymous read is
+//     rejected with "Only superusers can perform this action." The read
+//     runs server-side only; superuser credentials never reach the browser.
+//   - It matches generate-daily's SAME UTC-midnight day definition
+//     (toPbDate + getUtcDay copied verbatim) so the lookup hits the
+//     records the daily cron writes.
+//   - If a stored horoscope is found, it is injected into the prompt
+//     as the day's FIXED THEME, and the tailored reading is generated
+//     consistent with it. Still ONE combined OpenAI call (the fortune
+//     stays in the same call).
+//   - If NO stored horoscope exists (cron has not run / failed) OR the
+//     read errors for any reason, the route FALLS BACK to the prior
+//     inline behavior (generate from sign + cards only). In that case
+//     the prompt is byte-for-byte identical to the 2026-04-25 version.
+//   - Version D voice rules and the { horoscope, fortune } response
+//     shape are UNCHANGED.
 // ═══════════════════════════════════════════════════════════════
 
 import { NextResponse } from "next/server";
+import { getAdminPocketBase } from "@/lib/pocketbase";
+
+// ─── UTC-day helpers ─────────────────────────────────────────────────────────
+// These are copied VERBATIM from src/app/api/generate-daily/route.js so this
+// route defines "today" exactly the way the cron does. If these two ever drift
+// apart, lookups will silently miss and every reading will fall back to inline.
+
+// Format a Date as PocketBase's datetime string: "YYYY-MM-DD HH:mm:ss.SSSZ"
+function toPbDate(d) {
+  return d.toISOString().replace("T", " ");
+}
+
+// Today's UTC day as { value, dayStart, dayEnd }.
+// value / dayStart = midnight today (UTC); dayEnd = midnight tomorrow (UTC).
+function getUtcDay() {
+  const now = new Date();
+  const start = new Date(
+    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
+  );
+  const nextDay = new Date(start);
+  nextDay.setUTCDate(nextDay.getUTCDate() + 1);
+  return {
+    value: toPbDate(start),
+    dayStart: toPbDate(start),
+    dayEnd: toPbDate(nextDay),
+  };
+}
 
 export async function POST(request) {
   try {
@@ -36,6 +85,45 @@ export async function POST(request) {
       );
     }
 
+    // ── Read today's stored GENERIC horoscope (if the cron has produced one) ──
+    // The stored key is the lowercase sign id (e.g. "aries"). This route receives
+    // `sign` as an object, so we derive the id from sign.id when present, else from
+    // sign.name (lowercased) — which equals the id for all 12 signs.
+    const signId = (sign.id || sign.name || "").toString().trim().toLowerCase();
+    const day = getUtcDay();
+
+    let dailyTheme = null; // null => fall back to inline generation (today's behavior)
+    try {
+      // Superuser client: the horoscopes API rules are server-only (Option A,
+      // locked), so an anonymous read is rejected. getAdminPocketBase() already
+      // disables auto-cancellation and auto-refreshes its token.
+      const pb = await getAdminPocketBase();
+
+      const record = await pb
+        .collection("horoscopes")
+        .getFirstListItem(
+          `sign = "${signId}" && date >= "${day.dayStart}" && date < "${day.dayEnd}"`
+        );
+
+      dailyTheme = record?.content?.trim() || null;
+      if (dailyTheme) {
+        console.log(`📡 Found stored daily horoscope for ${signId} (${day.value})`);
+      }
+    } catch (err) {
+      // 404 = no horoscope stored yet today = expected; fall back quietly.
+      if (err?.status === 404) {
+        console.log(
+          `ℹ️ No stored daily horoscope for ${signId} — falling back to inline generation`
+        );
+      } else {
+        // Any other error must NOT break the reading — log it and fall back.
+        console.error(
+          `⚠️ Horoscope lookup failed for ${signId}: ${err?.message || err}`
+        );
+      }
+      dailyTheme = null;
+    }
+
     // ── Build the prompt ──
     const cardList = cards
       .map((c, i) => {
@@ -44,10 +132,21 @@ export async function POST(request) {
       })
       .join("\n");
 
+    // Theme block is inserted ONLY when a stored horoscope exists. When it does
+    // not, themeBlock is "" and the prompt is identical to the 2026-04-25 version.
+    const themeBlock = dailyTheme
+      ? `
+TODAY'S ESTABLISHED THEME for everyone born under ${sign.name} (already written in the correct voice) is:
+"${dailyTheme}"
+
+The HOROSCOPE you write below MUST stay consistent with the mood, tone, and direction of this established theme while weaving in the three specific cards above. Do not contradict it or drift to a different mood. Do not quote it directly and do not mention that a theme exists — express the same underlying energy through the cards. Then follow every rule below exactly.
+`
+      : "";
+
     const prompt = `You are a tarot reader and astrologer who writes for ordinary readers — warm, grounded, a little wise. You are NOT a Renaissance Faire performer. A user with the zodiac sign ${sign.name} (${sign.symbol}, ${sign.element} sign ruled by ${sign.rulingPlanet}) has drawn these three tarot cards for today:
 
 ${cardList}
-
+${themeBlock}
 Write two things:
 
 1. HOROSCOPE: A personalized horoscope for ${sign.name} today. Follow these rules strictly:
